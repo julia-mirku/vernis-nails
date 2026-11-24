@@ -607,6 +607,9 @@ html.sv .akt-stage .vh .cord i{position:absolute;right:-7px;top:-4px;width:12px;
 }
 /* Galerie: Pfeile neben dem Band, nie auf den Fotos */
 @media (min-width:901px) and (hover:hover){.strip-wrap{padding:0 64px}.strip-wrap .arr.l{left:0!important}.strip-wrap .arr.r{right:0!important}}
+/* 24.11 Holly: Kopfzeile beim Scrollen dicht, nichts scheint durch */
+header.top.scrolled{background:var(--samt)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+header.top{z-index:90!important}
 </style>
 </head>
 <body>
@@ -722,8 +725,8 @@ html.sv .akt-stage .vh .cord i{position:absolute;right:-7px;top:-4px;width:12px;
   <div class="wrap">
     <div class="sec-head reveal">
       <div><span class="kicker" data-en="Fitting room · try before you book">Garderobe · erst anprobieren, dann buchen</span>
-      <h2 class="t" data-en="The fitting room – <em>your set in the mirror.</em>">Die Anprobe – <em>Ihr Set im Spiegel.</em></h2></div>
-      <p class="lead" data-en="Try colour, length and shape in the mirror – the price is right next to it. Show the ticket at your appointment.">Probieren Sie Farbe, Länge und Form im Spiegel aus – der Preis steht gleich daneben. Das Ticket zeigen Sie beim Termin.</p>
+      <h2 class="t" data-en="The fitting room – <em>your set in three steps.</em>">Die Anprobe – <em>Ihr Set in drei Schritten.</em></h2></div>
+      <p class="lead" data-en="Choose length, shape and colour – the photo shows your set and the price is right beside it. Just show it at your appointment.">Wählen Sie Länge, Form und Farbe – das Foto zeigt Ihr Set, der Preis steht gleich daneben. Zeigen Sie es einfach beim Termin.</p>
       <button class="wandchip" id="wandChip" hidden><i></i><span data-en="Take the colour from the shelf">Farbe vom Regal mitnehmen</span></button>
     </div>
 <div class="anprobe" id="anprobe">
