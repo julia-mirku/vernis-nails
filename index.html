@@ -655,9 +655,13 @@ header.top .nav a:after{background:var(--perl)}
 /* ---------- VERNIS Lack-Atelier: erster Bildschirm (24.11 №103) ---------- */
 .hero.vx{position:relative;min-height:100svh;padding:0;background:var(--samt);color:var(--perl);overflow:hidden}
 .hero.vx:after{display:none}
-.vx-strip{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--samt)}
-.vx-strip figure{margin:0;position:relative;overflow:hidden}
-.vx-strip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;transform:scale(1.04);transition:transform 6s cubic-bezier(.2,.6,.2,1)}
+/* 24.11 Holly: keine sichtbaren Linien – EIN Bild, die drei Fotos sind weich überblendet (hero_bild.py), ohne angeschnittene Daumen */
+.vx-strip{position:absolute;inset:0;background:var(--samt);overflow:hidden}
+/* Bild immer in voller Breite (keine angeschnittenen Hände am Rand); ist der Bildschirm höher als das Bild, läuft es unten weich ins Petrol aus */
+.vx-strip img{position:absolute;left:0;top:0;width:100%;height:auto;transform:scale(1.03);transform-origin:50% 0;transition:transform 6s cubic-bezier(.2,.6,.2,1);
+  -webkit-mask:linear-gradient(180deg,#000 72%,transparent 100%);mask:linear-gradient(180deg,#000 72%,transparent 100%)}
+@media (min-aspect-ratio:2202/1013){.vx-strip img{height:100%;object-fit:cover;object-position:50% 12%;-webkit-mask:none;mask:none}}
+.vx-strip .vx-m{display:none}
 .hero.vx.open .vx-strip img{transform:none}
 .vx-shade{position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(180deg,rgba(10,30,29,.62) 0,rgba(10,30,29,0) 150px),linear-gradient(180deg,rgba(10,30,29,0) 38%,rgba(10,30,29,.6) 64%,rgba(10,30,29,.94) 100%)}
@@ -668,12 +672,10 @@ header.top .nav a:after{background:var(--perl)}
 .vx-text .sub{font-size:clamp(15px,1.15vw,17px);line-height:1.6;color:rgba(244,238,230,.9);max-width:44ch;margin-bottom:20px}
 .vx-text .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
 @media (min-width:901px) and (max-height:700px){.vx-text h1{font-size:clamp(40px,4.6vw,70px)}.vx-text .kicker{margin-bottom:10px}.vx-text .sub{margin-bottom:14px}}
-@media (max-width:1000px) and (min-width:701px){.vx-strip{grid-template-columns:repeat(2,1fr)}.vx-strip figure:first-child{display:none}.vx-text{grid-template-columns:1fr}}
-@media (max-width:700px){
+@media (max-width:1000px){
   .hero.vx{min-height:0}
-  .vx-strip{position:relative;height:62svh;grid-template-columns:1fr}
-  .vx-strip figure:not(:last-child){display:none}
-  .vx-strip img{object-position:50% 14%}
+  .vx-strip{position:relative;height:62svh}
+  .vx-strip .vx-d{display:none}.vx-strip .vx-m{display:block;height:100%;object-fit:cover;object-position:50% 8%;-webkit-mask:none;mask:none}
   .vx-shade{height:62svh;bottom:auto;background:linear-gradient(180deg,rgba(10,30,29,.6) 0,rgba(10,30,29,0) 120px),linear-gradient(180deg,rgba(10,30,29,0) 60%,var(--samt) 100%)}
   .vx-text{min-height:0;grid-template-columns:1fr;gap:6px;margin-top:-84px;padding:0 0 40px}
   .vx-text h1{font-size:clamp(40px,11.5vw,52px)}
@@ -711,9 +713,8 @@ header.top .nav a:after{background:var(--perl)}
 <main>
 <section class="hero vx" id="hero">
   <div class="vx-strip" aria-hidden="true">
-    <figure><img src="img/hand_11.webp" alt="" fetchpriority="high"></figure>
-    <figure><img src="img/hand_14.webp" alt="" fetchpriority="high"></figure>
-    <figure><img src="img/hand_13.webp" alt="" fetchpriority="high"></figure>
+    <img class="vx-d" src="img/hero_farben.webp" alt="" fetchpriority="high" width="2202" height="1013">
+    <img class="vx-m" src="img/hero_bordeaux.webp" alt="" loading="lazy" width="779" height="1116">
   </div>
   <div class="vx-shade" aria-hidden="true"></div>
   <div class="vx-text">
@@ -1075,7 +1076,7 @@ $$('#ticket .tsal button').forEach(b=>b.addEventListener('click',()=>{cur=b.data
 /* Telefon: Buchen-Leiste nach dem ersten Bildschirm */
 const bb=$('#bookbar');new IntersectionObserver(es=>es.forEach(e=>bb.classList.toggle('show',!e.isIntersecting)),{threshold:.05}).observe(hero);
 /* Galerie: Foto aus dem Hero nicht doppelt zeigen */
-{const hs=[...hero.querySelectorAll('.vx-strip img')].map(i=>i.getAttribute('src'));$$('#strip figure').forEach(f=>{if(hs.includes(f.querySelector('img').getAttribute('src')))f.parentNode.removeChild(f)})}
+{const hs=['img/hand_11.webp','img/hand_14.webp','img/hand_13.webp'];$$('#strip figure').forEach(f=>{if(hs.includes(f.querySelector('img').getAttribute('src')))f.parentNode.removeChild(f)})}
 /* ---------- Programm ---------- */
 /* ---------- Preisliste (VERNIS) ---------- */
 {$$('.pk-tabs button').forEach(b=>b.addEventListener('click',()=>{$$('.pk-tabs button').forEach(x=>{const on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});
