@@ -9,7 +9,7 @@
 <meta name="description" content="Musterseite mit fiktiven Angaben: VERNIS Nail Studio, Winterthur.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prata&family=Tenor+Sans&family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/hand_13.webp">
+<link rel="preload" as="image" href="img/v_hero.webp">
 <style>
 :root{
   --samt:#0F2B2A; --samt-2:#173D3B; --lack:#16524D; --lack-2:#1F6E67;
@@ -617,6 +617,15 @@ header.top{z-index:90!important}
 /* ---------- 24.11 Kopfzeile Tablet: Knöpfe rechts ---------- */
 @media (max-width:1100px) and (min-width:601px){.top .lang{margin-left:auto}}
 
+/* ---------- 24.11 №124 «+» gewählt → «−» zum Entfernen ---------- */
+/* №130: Breite bleibt gleich – das «−» steht genau an der Stelle von «+15» (Preis steht in der Summe darunter) */
+#atelier .seg button[data-p] span,#atelier #segEx button span{position:relative;display:inline-block}
+#atelier .seg button[data-p].on span,#atelier #segEx button.on span{color:transparent!important}
+#atelier .seg button[data-p].on span::after,#atelier #segEx button.on span::after{content:"−";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font:600 15px/1 system-ui,-apple-system,sans-serif;
+  background:rgba(255,255,255,.24);color:#fff}
+@media (hover:hover){#atelier .seg button[data-p].on:hover span::after,#atelier #segEx button.on:hover span::after{background:rgba(255,255,255,.4)}}
+
 /* ---------- VERNIS eigene Optik (24.11 №103/№104) ---------- */
 :root{--perl:#F4EEE6;--perl-2:#E4DAD0}
 /* Kopf: Petrol, Schrift Perlmutt statt Gold */
@@ -684,6 +693,13 @@ header.top .nav a:after{background:var(--perl)}
   .vx-text h1{font-size:clamp(40px,11.5vw,52px)}
   .vx-text .hero-cta .btn{flex:1 1 auto}
 }
+
+/* ---------- 24.11 Toms Fotos: Hero mit Händen rechts, Text links auf ruhiger Fläche ---------- */
+.vx-strip img{-webkit-mask:none!important;mask:none!important;height:100%!important;object-fit:cover;object-position:72% 30%}
+.vx-shade{background:linear-gradient(180deg,rgba(10,30,29,.55) 0,rgba(10,30,29,0) 140px),linear-gradient(90deg,rgba(10,30,29,.86) 0,rgba(10,30,29,.62) 30%,rgba(10,30,29,.15) 52%,rgba(10,30,29,0) 64%),linear-gradient(180deg,rgba(10,30,29,0) 70%,rgba(10,30,29,.35) 100%)!important}
+@media (min-width:1001px){.vx-text{grid-template-columns:minmax(0,600px) 1fr;align-content:end}.vx-text h1{font-size:clamp(42px,4.6vw,78px)!important}.vx-text .vx-l,.vx-text .vx-r{grid-column:1}.vx-text .vx-r{margin-top:-8px}}
+@media (max-width:1000px){.vx-strip .vx-m{object-position:50% 20%!important}
+  .vx-shade{background:linear-gradient(180deg,rgba(10,30,29,.6) 0,rgba(10,30,29,0) 120px),linear-gradient(180deg,rgba(10,30,29,0) 58%,var(--samt) 100%)!important}}
 </style>
 </head>
 <body>
@@ -716,8 +732,8 @@ header.top .nav a:after{background:var(--perl)}
 <main>
 <section class="hero vx" id="hero">
   <div class="vx-strip" aria-hidden="true">
-    <img class="vx-d" src="img/hero_farben.webp" alt="" fetchpriority="high" width="2202" height="1013">
-    <img class="vx-m" src="img/hero_bordeaux.webp" alt="" loading="lazy" width="779" height="1116">
+    <img class="vx-d" src="img/v_hero.webp" alt="" fetchpriority="high" width="2400" height="1340">
+    <img class="vx-m" src="img/v_hero_m.webp" alt="" loading="lazy" width="1100" height="1035">
   </div>
   <div class="vx-shade" aria-hidden="true"></div>
   <div class="vx-text">
@@ -743,7 +759,7 @@ header.top .nav a:after{background:var(--perl)}
     </div>
     <div class="stages reveal" role="tablist" aria-label="Salon wählen">
       <button class="stagecard on" data-s="altstadt" role="tab" aria-selected="true">
-        <img loading="lazy" src="img/lackwand.webp" alt="Studio Altstadt mit Farbregal">
+        <img loading="lazy" src="img/v_studio_1.webp" alt="Atelier Altstadt: Samtsessel, Marmortisch, Goldleuchte">
         <span class="sel" data-en="Selected">Gewählt</span>
         <span class="no" data-en="I · The original · since 2014">I · Das Original · seit 2014</span>
         <h3>Altstadt <em style="font-style:italic;color:var(--gold-2)">an der Marktgasse</em></h3>
@@ -757,7 +773,7 @@ header.top .nav a:after{background:var(--perl)}
         <p data-en="Big windows, quiet music – and the bus stop is just around the corner.">Grosse Fenster, leise Musik – und die Bushaltestelle liegt gleich um die Ecke.</p>
       </button>
       <button class="stagecard" data-s="zuhause" role="tab" aria-selected="false">
-        <img loading="lazy" src="img/hand_04.webp" alt="Pedicure mit Fussmassage">
+        <img loading="lazy" src="img/v_kaffee.webp" alt="Gepflegte Hand mit Kaffeetasse, kurze natürliche Nägel">
         <span class="sel" data-en="Choose">Wählen</span>
         <span class="no" data-en="III · Mobile">III · Mobil</span>
         <h3 data-en="On the road">Unterwegs <em style="font-style:italic;color:var(--gold-2)">zu Ihnen</em></h3>
@@ -911,21 +927,15 @@ header.top .nav a:after{background:var(--perl)}
 <section class="sec grain" id="galerie">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div><span class="kicker">#vernisluzern · @vernis.studio</span>
+      <div><span class="kicker">#vernisatelier · @vernis.studio</span>
       <h2 class="t" data-en="Fresh from <em>the atelier.</em>">Frisch aus <em>dem Atelier.</em></h2></div>
     </div>
     <div class="strip-wrap reveal">
       <button class="arr l" aria-label="Zurück"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
       <div class="strip" id="strip">
-        <figure><img loading="lazy" src="img/hand_07.webp" alt="Nude Mandel"><figcaption>Milky French</figcaption></figure>
-        <figure><img loading="lazy" src="img/hand_09.webp" alt="Polka Dots"><figcaption>Cat Eye · Mauve</figcaption></figure>
-        <figure><img loading="lazy" src="img/hand_13.webp" alt="Dunkle Nägel"><figcaption>Bordeaux</figcaption></figure>
-        <figure><img loading="lazy" src="img/hand_10.webp" alt="Evil Eye mit Gold"><figcaption>Chrome</figcaption></figure>
-        <figure><img loading="lazy" src="img/hand_15.webp" alt="Rosa Mandel"><figcaption>Black Gloss</figcaption></figure>
-        <figure><img loading="lazy" src="img/hand_16.webp" alt="Nude mit Handcreme"><figcaption>Lilac</figcaption></figure>
-        <figure><img loading="lazy" src="img/hand_17.webp" alt="Rosa BIAB"><figcaption>Aqua</figcaption></figure>
-        <figure><img loading="lazy" src="img/hand_06.webp" alt="Wimpernlifting – vorher, nachher"><figcaption>Milky</figcaption></figure>
-        <figure><img loading="lazy" src="img/hand_12.webp" alt="Pedicure"><figcaption>Cherry Red</figcaption></figure>
+        <figure><img loading="lazy" src="img/v_french.webp" alt="French auf Mandelform, dunkle Haut, Seidentuch"><figcaption>French · Mandel</figcaption></figure>
+        <figure><img loading="lazy" src="img/v_flakon.webp" alt="Kirschroter Lack, eckige Form, Flakon mit Goldkappe"><figcaption>Kirschrot</figcaption></figure>
+        <figure><img loading="lazy" src="img/v_chrome.webp" alt="Perlmutt-Chrome auf zwei Händen, Marmor"><figcaption>Perlmutt-Chrome</figcaption></figure>
       </div>
       <button class="arr r" aria-label="Weiter"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
       <div class="dots" id="dots"></div>
@@ -996,7 +1006,7 @@ header.top .nav a:after{background:var(--perl)}
         </div>
         <div class="hero-cta" style="margin-top:18px"><a class="btn btn-ink" href="tel:+41520000000">052 000 00 00</a><a class="btn btn-ghost" href="#" target="_blank" rel="noopener">Instagram</a><a class="btn btn-ghost" href="#" target="_blank" rel="noopener">TikTok</a></div>
       </div>
-      <div class="fin-photo"><img loading="lazy" src="img/hand_18.webp" alt="Nude mit Glanz, Atelier Altstadt"></div>
+      <div class="fin-photo"><img loading="lazy" src="img/v_spiegel.webp" alt="Zwei Hände auf Samt vor dem Goldspiegel"></div>
     </div>
   </div>
   <footer class="foot">
@@ -1079,7 +1089,7 @@ $$('#ticket .tsal button').forEach(b=>b.addEventListener('click',()=>{cur=b.data
 /* Telefon: Buchen-Leiste nach dem ersten Bildschirm */
 const bb=$('#bookbar');new IntersectionObserver(es=>es.forEach(e=>bb.classList.toggle('show',!e.isIntersecting)),{threshold:.05}).observe(hero);
 /* Galerie: Foto aus dem Hero nicht doppelt zeigen */
-{const hs=['img/hand_11.webp','img/hand_14.webp','img/hand_13.webp'];$$('#strip figure').forEach(f=>{if(hs.includes(f.querySelector('img').getAttribute('src')))f.parentNode.removeChild(f)})}
+{const hs=[];$$('#strip figure').forEach(f=>{if(hs.includes(f.querySelector('img').getAttribute('src')))f.parentNode.removeChild(f)})}
 /* ---------- Programm ---------- */
 /* ---------- Preisliste (VERNIS) ---------- */
 {$$('.pk-tabs button').forEach(b=>b.addEventListener('click',()=>{$$('.pk-tabs button').forEach(x=>{const on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});
@@ -1226,6 +1236,16 @@ render();
 /* ===== №104 Leiste unten weg, sobald «Ihr Set» mit Preis im Bild ist ===== */
 (()=>{const bb=$('#bookbar'),r=document.querySelector('#anprobe .ap-steps');if(!bb||!r)return;
   new IntersectionObserver(es=>es.forEach(e=>bb.classList.toggle('konf-off',e.isIntersecting)),{threshold:0,rootMargin:'0px 0px 80px 0px'}).observe(r)})();
+
+
+/* ===== 24.11 №124: «+»-Option nochmals tippen = entfernen ===== */
+(()=>{const back={segFin:'farbe',segFx:'none'};
+  Object.keys(back).forEach(id=>{const seg=document.getElementById(id);if(!seg)return;
+    seg.addEventListener('click',e=>{const b=e.target.closest('button[data-p]');if(!b||!b.classList.contains('on'))return;
+      const f=seg.querySelector(`[data-v="${back[id]}"]`);if(!f||f.disabled)return;e.stopPropagation();e.preventDefault();f.click()},true)});
+  const lab=()=>document.querySelectorAll('#atelier .seg button[data-p],#atelier #segEx button').forEach(b=>{const n=b.childNodes[0].textContent.trim();
+    b.setAttribute('aria-pressed',b.classList.contains('on'));b.title=b.classList.contains('on')?n+' – nochmals tippen zum Entfernen':''});
+  new MutationObserver(lab).observe(document.getElementById('atelier'),{subtree:true,attributes:true,attributeFilter:['class']});lab()})();
 
 
 /* ===== 24.11 Bookbar nicht über dem Preis ===== */
