@@ -231,6 +231,7 @@ html.nb-off .top{top:0}
 .ap-sum em{display:block;font-style:normal;font-size:13px;color:var(--tinte-2);margin-top:2px}
 .ap-pr{white-space:nowrap}.ap-pr small{font-size:13px;color:var(--tinte-2);margin-right:4px}.ap-pr span{font:400 42px "Prata";color:var(--lack)}
 .ap-go{align-self:flex-start}
+@media (min-width:1001px) and (max-height:760px){.ap-pic{width:min(400px,max(220px,calc((100svh - 290px)*.8)))}.ap-pic figcaption{margin-top:8px}.ap-steps{gap:10px}.ap-step{padding-bottom:10px}.ap-k{margin:4px 0 6px}.ap-t{font-size:17px;padding:2px 0 6px}.ap-s{height:44px}.ap-pr span{font-size:36px}}
 @media (hover:hover){.live .ap-t:not(.on):hover{color:var(--lack)}.live .ap-s:not(.on):hover{transform:translateY(-3px)}}
 @media (max-width:1000px){
   .anprobe{grid-template-columns:1fr;gap:22px}
@@ -550,7 +551,7 @@ html.sv .akt-stage .vh:after{content:"";position:absolute;inset:0;pointer-events
   #atelier .seg button{padding:7px 13px;font-size:14px}
   #atelier .result{margin-top:8px!important}
   #atelier .set-grid>.stage{width:min(100%,calc((100svh - 250px)*.8))!important}
-  #toneCtrl{margin-bottom:14px!important}
+  #atelier #toneCtrl{margin-bottom:16px!important}
 }
 @media (min-width:901px) and (max-width:1100px) and (max-height:820px){
   #atelier .seg button{padding:6px 10px;font-size:13px}
@@ -569,7 +570,7 @@ html.sv .akt-stage .vh:after{content:"";position:absolute;inset:0;pointer-events
   #atelier .ctrl h3{margin-bottom:3px!important}
   #atelier .seg button{padding:6px 12px}
   #atelier .result{margin-top:6px!important}
-  #toneCtrl{margin-bottom:12px!important}
+  #atelier #toneCtrl{margin-bottom:16px!important}
 }
 /* Ticket: «Jetzt buchen» mit Abstand zum Kartenrand */
 @media (max-width:1300px) and (min-width:901px){.ticket .trow a{font-size:12.5px}.ticket .trow a.b{letter-spacing:.08em}}
@@ -588,6 +589,24 @@ html.sv .akt-stage .vh .cord{position:absolute;left:0;width:13%;height:5px;borde
   background:linear-gradient(90deg,#8a6a2c,#f1dfb6 45%,#b8924f);box-shadow:0 2px 6px rgba(0,0,0,.45);transform-origin:left center}
 html.sv .akt-stage .vh .cord i{position:absolute;right:-7px;top:-4px;width:12px;height:22px;border-radius:40% 40% 50% 50%;
   background:radial-gradient(circle at 40% 30%,#f6e7c3,#b8924f 60%,#6d5220);box-shadow:0 3px 6px rgba(0,0,0,.4)}
+
+/* ---------- 24.11 Register V6 (1470×659) ---------- */
+@media (min-width:901px){.ticket{width:clamp(286px,74%,330px)!important}}
+@media (min-width:901px) and (max-height:700px){
+  #atelier{padding-top:22px!important;padding-bottom:22px!important}
+  #atelier .sec-head .lead{display:none}
+  #atelier .sec-head{margin-bottom:8px!important}
+  #atelier .sec-head .t{font-size:clamp(26px,2.6vw,34px)}
+  #atelier .ctrl{margin-bottom:2px!important}
+  #atelier .ctrl h3{margin-bottom:2px!important;font-size:11px}
+  #atelier .seg button{padding:5px 11px;font-size:13.5px}
+  #atelier .result{margin-top:4px!important;padding-top:12px!important;padding-bottom:12px!important}
+  #atelier .set-grid>.stage{width:min(100%,calc((100svh - 300px)*.8))!important}
+  #atelier #toneCtrl{margin-bottom:17px!important}
+  #atelier{scroll-margin-top:-14px}
+}
+/* Galerie: Pfeile neben dem Band, nie auf den Fotos */
+@media (min-width:901px) and (hover:hover){.strip-wrap{padding:0 64px}.strip-wrap .arr.l{left:0!important}.strip-wrap .arr.r{right:0!important}}
 </style>
 </head>
 <body>
@@ -857,18 +876,18 @@ html.sv .akt-stage .vh .cord i{position:absolute;right:-7px;top:-4px;width:12px;
     <div class="sec-head reveal">
       <div><span class="kicker" data-en="Voices">Stimmen</span>
       <h2 class="t" data-en="Applause <em>from the stalls.</em>">Applaus <em>aus dem Parkett.</em></h2></div>
-      <div class="score"><div><b>5,0</b>Google</div><div><b>600+</b><span data-en="reviews">Bewertungen</span></div></div>
+      <div class="score"><div><b>5,0</b><span data-en="average">im Schnitt</span></div><div><b>600+</b><span data-en="reviews">Bewertungen</span></div></div>
     </div>
     <div class="krit reveal">
       <figure class="kq big"><span class="st">★★★★★</span>
         <blockquote>«Ich war vor einer Premiere hier und hatte die schönsten Nägel des Abends. Ruhig, präzise und mit einem Auge für Farbe.»</blockquote>
-        <cite><b>Lena M.</b> · Google</cite></figure>
+        <cite><b>Lena M.</b> · Stammkundin</cite></figure>
       <figure class="kq"><span class="st">★★★★★</span>
         <blockquote>«Das Set-Studio auf der Website hat mir die Wahl leicht gemacht – im Studio war es genau so.»</blockquote>
-        <cite><b>Nina K.</b> · Google</cite></figure>
+        <cite><b>Nina K.</b> · Stammkundin</cite></figure>
       <figure class="kq"><span class="st">★★★★★</span>
         <blockquote>«Perfect shape, flawless cuticles and they lasted four weeks.»</blockquote>
-        <cite><b>Sarah B.</b> · Google</cite></figure>
+        <cite><b>Sarah B.</b> · Stammkundin</cite></figure>
     </div>
   </div>
 </section>
@@ -1074,7 +1093,7 @@ addEventListener('pointerdown',e=>{if(!hero.classList.contains('live')||e.button
 if(H.classList.contains('sv')){(()=>{const stg=$('#aktStage');if(!stg)return;const L=stg.querySelector('.vh.l'),R=stg.querySelector('.vh.r');
   const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;let cur=rm?1:0,tgt=cur,force=null,raf=0;
   const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
-  function target(){const r=stg.getBoundingClientRect(),vh=innerHeight;const a=vh*.78,b=vh/2-r.height/2;const p=(a-r.top)/Math.max(1,a-Math.max(b,-r.height));return Math.max(0,Math.min(1,p))}
+  function target(){const r=stg.getBoundingClientRect(),vh=innerHeight;const a=vh*.9,b=Math.max(vh/2-r.height/2,vh*.22);const p=(a-r.top)/Math.max(1,a-Math.max(b,-r.height));return Math.max(0,Math.min(1,p))}
   /* Raffvorhang: Bahnen bauen */
   let N=0,W=0,Hh=0,bw=0;const P=[L,R];
   function build(){const r=stg.getBoundingClientRect();W=L.getBoundingClientRect().width||r.width*.51;Hh=r.height;N=innerWidth<700?11:16;bw=W/N;
