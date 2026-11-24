@@ -431,7 +431,7 @@ html.nb-off .top{top:0}
 .hero.b{padding-bottom:150px}
 .hero.b .hero-grid{min-height:calc(100svh - var(--hdr) - var(--nb) - 200px)}
 @media (min-width:901px){.hero.b{padding-top:calc(var(--hdr) + var(--nb) + 4px);padding-bottom:170px}.hero.b .buehne{width:min(100%,calc((100svh - 340px)*.8),520px)}.hero.b .ticket{bottom:4%}}
-.regal{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:9;width:min(1107px,94vw);opacity:0;transition:opacity 1s .9s var(--ease)}
+.regal{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:9;width:min(930px,94vw);opacity:0;transition:opacity 1s .9s var(--ease)}
 .hero.open .regal{opacity:1}
 .regal-k{display:block;font-family:"Tenor Sans";font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-2);margin:0 0 8px 4px}
 .regal-in{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px rgba(217,189,132,.45),0 24px 50px -24px rgba(0,0,0,.8);background:#cfc8c0;touch-action:pan-y;cursor:crosshair}
@@ -512,7 +512,10 @@ html.nb-off .top{top:0}
 .sec,.finale{padding-top:54px!important;padding-bottom:54px!important}
 .finale{padding-bottom:0!important}
 #salons{padding-top:clamp(70px,6vw,86px)!important}
-.drips{height:clamp(46px,4.6vw,66px)}
+/* 24.11 Tropfen (Julia: Enden wieder rund): SVG immer im Seitenverhältnis 1440:120, nie gestaucht; Telefon: doppelt so gross, Rest abgeschnitten */
+.drips{height:auto}
+.drips svg{display:block;width:100%;height:auto;aspect-ratio:1440/120}
+@media (max-width:900px){.drips{overflow:hidden}.drips svg{width:200%}}
 .hero.b{padding-bottom:156px}
 @media (max-width:900px){.sec,.finale{padding-top:40px!important;padding-bottom:40px!important}.finale{padding-bottom:0!important}#salons{padding-top:56px!important}.hero.b{padding-bottom:30px}.foot{margin-top:36px}}
 
@@ -522,6 +525,108 @@ html.sv .akt-stage .vh.l{transform-origin:left center}
 html.sv .akt-stage .vh.r{transform-origin:right center}
 html.sv .akt-stage .vh:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:var(--fold,0);
   background:repeating-linear-gradient(90deg,rgba(0,0,0,.38) 0 3px,rgba(0,0,0,0) 9px,rgba(255,220,200,.07) 14px,rgba(0,0,0,0) 20px)}
+/* 24.11 Julia: Punkte der Hautton-Skala höher, «Länge» fährt nicht mehr darauf */
+#toneCtrl .tone{height:auto;padding-top:4px;padding-bottom:2px}
+#toneCtrl .tone-ticks{padding-top:2px;line-height:0}
+#toneCtrl{margin-bottom:20px!important}
+
+/* ---------- 24.11 Die Logen: Instagram & TikTok ---------- */
+.logen{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:22px;margin-top:38px}
+.loge{position:relative;border-radius:20px;background:radial-gradient(120% 90% at 50% 0,#4a1828 0,var(--samt) 62%);color:var(--papier);padding:62px 28px 34px;overflow:hidden;isolation:isolate;text-decoration:none;display:flex;flex-direction:column;gap:18px;box-shadow:0 30px 60px -36px rgba(42,14,23,.75)}
+.loge:before{content:"";position:absolute;left:0;right:0;top:0;height:40px;z-index:2;pointer-events:none;
+  background:radial-gradient(circle at 50% 0,#7d2034 0 17px,#5c1626 18px 19px,transparent 20px) 0 10px/38px 30px repeat-x,linear-gradient(180deg,#5c1626,#41101d) 0 0/100% 14px no-repeat}
+.loge:after{content:"";position:absolute;left:0;right:0;bottom:0;height:16px;z-index:2;pointer-events:none;
+  background:linear-gradient(var(--gold-2),var(--gold)) 0 0/100% 2px no-repeat,repeating-linear-gradient(90deg,rgba(217,189,132,.55) 0 3px,transparent 3px 22px) 0 2px/100% 14px no-repeat}
+.loge .lg-k{font-family:"Tenor Sans";font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-2)}
+.loge .lg-h{font-family:"Prata";font-size:clamp(24px,2.1vw,30px);line-height:1.1;margin:2px 0 0}
+.loge .lg-h em{color:var(--gold-2)}
+.lg-count{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.lg-count b{font-family:"Prata";font-weight:400;font-size:clamp(46px,4.6vw,64px);line-height:1;color:var(--gold-3);font-variant-numeric:tabular-nums}
+.lg-count span{font-size:14px;color:rgba(246,238,230,.78)}
+.lg-thumbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.lg-thumbs img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;box-shadow:0 0 0 1px rgba(217,189,132,.35);transition:transform .5s var(--ease),filter .5s}
+.loge:hover .lg-thumbs img{transform:translateY(-3px)}
+.loge:hover .lg-thumbs img:nth-child(2){transform:translateY(-7px)}
+.lg-go{margin-top:auto;align-self:flex-start;font-family:"Tenor Sans";font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--samt);background:linear-gradient(180deg,var(--gold-3),var(--gold-2));padding:12px 18px;border-radius:99px;transition:transform .3s var(--ease)}
+.loge:hover .lg-go{transform:translateX(4px)}
+.lg-reels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.lg-reel{position:relative;aspect-ratio:3/4;border-radius:12px;overflow:hidden;box-shadow:0 0 0 1px rgba(217,189,132,.35)}
+.lg-reel img{width:100%;height:100%;object-fit:cover;object-position:50% 0;transition:object-position 6s linear}
+.loge:hover .lg-reel img,.logen.play .lg-reel img{object-position:50% 100%}
+.lg-reel:nth-child(2) img{transition-delay:.4s}
+.lg-reel i{position:absolute;left:12px;bottom:12px;width:38px;height:38px;border-radius:50%;background:rgba(28,9,16,.6);backdrop-filter:blur(4px);box-shadow:0 0 0 1px rgba(241,223,182,.7)}
+.lg-reel i:before{content:"";position:absolute;left:15px;top:12px;border-left:11px solid var(--gold-3);border-top:7px solid transparent;border-bottom:7px solid transparent}
+.loge:hover .lg-reel i{animation:lgPuls 1.4s ease-in-out infinite}
+@keyframes lgPuls{50%{box-shadow:0 0 0 1px rgba(241,223,182,.7),0 0 0 8px rgba(241,223,182,.12)}}
+@media (max-width:900px){.logen{grid-template-columns:minmax(0,1fr);gap:16px;margin-top:26px}.loge{padding:56px 20px 30px}}
+@media (prefers-reduced-motion:reduce){.lg-reel img{transition:none}.loge:hover .lg-reel i{animation:none}}
+/* 24.11 Holly: keine harte Linie über den Tropfen – weicher Lackrand */
+.drips .band{fill:url(#lackV)!important}
+/* 24.11 Holly: «Wählen» auf hellem Foto lesbar */
+.stagecard .sel{background:rgba(28,9,16,.62)!important;color:var(--papier)}
+.stagecard.on .sel{background:var(--gold-2)!important;color:var(--samt)}
+/* 24.11 Holly: Instagram-Loge ohne Leerstreifen – Fotos füllen bis zum Knopf */
+.lg-thumbs{flex:1 1 auto;min-height:150px}
+.lg-thumbs img{aspect-ratio:auto;height:100%}
+
+/* ---------- 24.11 Prüfung Holly ---------- */
+/* Naht über den Tropfen: Schatten der Lackwand endet vor dem Rand des ersten Bildschirms */
+.regal-in{box-shadow:0 0 0 1px rgba(217,189,132,.45),0 12px 22px -16px rgba(0,0,0,.5)!important}
+@media (max-width:900px){.hero.b{padding-bottom:44px!important}}
+/* «Ihr Platz»: Telefonnummer und «Jetzt buchen» je eine Zeile */
+.ticket .trow a{white-space:nowrap}
+@media (max-width:1300px) and (min-width:901px){.ticket .trow a{font-size:13px}.ticket .trow a.b{letter-spacing:.14em}.ticket .trow{gap:8px}}
+/* Mini-Hand verschwindet, sobald die Preis-Plakette im Bild ist */
+#mini.off{opacity:0!important;transform:translateY(16px) scale(.95)!important}
+/* Set-Studio passt in den Bildschirm bei niedriger Höhe (1280×720, 1024×768, 1366×768) */
+@media (min-width:901px) and (max-height:820px){
+  #atelier{padding-top:34px!important;padding-bottom:34px!important}
+  #atelier .sec-head{margin-bottom:12px!important;gap:6px 30px}
+  #atelier .sec-head .t{font-size:clamp(30px,3.2vw,42px)}
+  #atelier .sec-head .lead{font-size:14px;line-height:1.45}
+  #atelier .ctrl{margin-bottom:7px!important}
+  #atelier .ctrl h3{margin-bottom:5px!important;font-size:12px}
+  #atelier .seg button{padding:7px 13px;font-size:14px}
+  #atelier .result{margin-top:8px!important}
+  #atelier .set-grid>.stage{width:min(100%,calc((100svh - 250px)*.8))!important}
+  #toneCtrl{margin-bottom:14px!important}
+}
+@media (min-width:901px) and (max-width:1100px) and (max-height:820px){
+  #atelier .seg button{padding:6px 10px;font-size:13px}
+  #atelier .seg{gap:6px}
+  #atelier .sec-head .t{font-size:30px}
+  #atelier .set-grid{gap:34px}
+}
+/* 24.11 Planschet wie Telefon: Galerie ohne Pfeile auf Touch-Geräten bis 1100 px (Wischen + Punkte) */
+@media (max-width:1100px) and (hover:none){.strip-wrap .arr{display:none!important}}
+
+/* ---------- 24.11 Register ---------- */
+/* Navi-Klick: Überschrift direkt unter der Kopfzeile, der obere Innenabstand darf darunter liegen */
+@media (min-width:901px){#atelier{scroll-margin-top:-36px}}
+@media (min-width:901px) and (max-height:740px){
+  #atelier .ctrl{margin-bottom:4px!important}
+  #atelier .ctrl h3{margin-bottom:3px!important}
+  #atelier .seg button{padding:6px 12px}
+  #atelier .result{margin-top:6px!important}
+  #toneCtrl{margin-bottom:12px!important}
+}
+/* Ticket: «Jetzt buchen» mit Abstand zum Kartenrand */
+@media (max-width:1300px) and (min-width:901px){.ticket .trow a{font-size:12.5px}.ticket .trow a.b{letter-spacing:.08em}}
+/* Telefon: untere Leiste weicht, solange die Preis-Plakette sichtbar ist */
+.bookbar.konf-off{transform:translateY(140%)!important}
+
+/* ---------- 24.11 Raffvorhang (html.sv) ---------- */
+html.sv .akt-stage .vh{background:none!important;transform:none!important;overflow:visible}
+html.sv .akt-stage .vh:after{display:none}
+html.sv .akt-stage .vh.r{transform:scaleX(-1)!important;transform-origin:center center!important}
+html.sv .akt-stage .vh .st{position:absolute;top:0;bottom:0;left:0;background:#3A0F1C url(img/samt_vorhang.webp) repeat-x;
+  transform-origin:left top;will-change:transform,clip-path;backface-visibility:hidden}
+html.sv .akt-stage .vh .st:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:var(--s,0);
+  background:linear-gradient(90deg,rgba(18,2,8,.62) 0,rgba(18,2,8,.18) 22%,rgba(255,214,196,.16) 48%,rgba(18,2,8,.22) 74%,rgba(18,2,8,.66) 100%)}
+html.sv .akt-stage .vh .cord{position:absolute;left:0;width:13%;height:5px;border-radius:3px;z-index:3;opacity:0;
+  background:linear-gradient(90deg,#8a6a2c,#f1dfb6 45%,#b8924f);box-shadow:0 2px 6px rgba(0,0,0,.45);transform-origin:left center}
+html.sv .akt-stage .vh .cord i{position:absolute;right:-7px;top:-4px;width:12px;height:22px;border-radius:40% 40% 50% 50%;
+  background:radial-gradient(circle at 40% 30%,#f6e7c3,#b8924f 60%,#6d5220);box-shadow:0 3px 6px rgba(0,0,0,.4)}
 </style>
 </head>
 <body>
@@ -560,25 +665,25 @@ html.sv .akt-stage .vh:after{content:"";position:absolute;inset:0;pointer-events
     <div>
       <span class="kicker rise" data-en="Since 2014 · Altstadt &amp; Bruchquartier">Seit 2014 · Altstadt &amp; Bruchquartier</span>
       <h1 class="rise d1">Nägel, die<br><em>auftreten.</em></h1>
-      <p class="sub rise d2" data-en="Hundreds of colours on the wall, one standard on every hand: careful prep, clean work and nails that last.">Hunderte Farben an der Wand, ein Standard an jeder Hand: sorgfältige Vorbereitung, saubere Arbeit, Nägel, die halten.</p>
+      <p class="sub rise d2" data-en="A stage for your hands: filed with care, painted precisely – and the set lasts three weeks and more.">Eine Bühne für Ihre Hände: in Ruhe gefeilt, präzise lackiert – und das Set hält drei Wochen und länger.</p>
       <div class="hero-cta rise d3"><a class="btn btn-gold" href="#salons" data-en="Book now">Termin buchen</a><a class="btn btn-line" href="#atelier" data-en="Design your set">Set entwerfen</a></div>
-      <div class="facts rise d4"><div><b>5,0</b>Google · 600+</div><div><b>20</b><span data-en="years of experience">Jahre Erfahrung</span></div><div><b>2</b><span data-en="salons + academy">Salons + Academy</span></div></div>
+      <div class="facts rise d4"><div><b>5,0</b>Google · 600+</div><div><b>20</b><span data-en="years of experience">Jahre Erfahrung</span></div><div><b>2</b><span data-en="studios + courses">Studios + Kurse</span></div></div>
     </div>
     <div class="buehne rise d2">
-      <div class="portal"><img src="img/hand_13.webp" alt="Dunkle Nägel aus dem Salon VERNIS" fetchpriority="high"></div>
+      <div class="portal"><img src="img/hand_13.webp" alt="Dunkler Lack, Studio VERNIS" fetchpriority="high"></div>
       <div class="ticket" id="ticket">
-        <span class="tk" data-en="Your seat">Ihr Platz</span>
-        <div class="tsal"><button data-s="seefeld" class="on">Altstadt</button><button data-s="schaffhauserplatz">Bruchquartier</button></div>
+        <span class="tk" data-en="Your box">Ihre Loge</span>
+        <div class="tsal"><button data-s="altstadt" class="on">Altstadt</button><button data-s="bruch">Bruchquartier</button></div>
         <div class="tad" id="tAddr">Theaterstrasse 7, 6003 Luzern</div>
-        <div class="tst" id="tStat"><i></i>Mo–Fr 9–19, Sa 9–16</div>
+        <div class="tst" id="tStat"><i></i>Di–Fr 9–18, Do bis 20, Sa 8–15</div>
         <hr>
         <div class="trow"><a href="tel:+41410000000">041 000 00 00</a><a class="b" id="tBook" href="#" target="_blank" rel="noopener" data-en="Book now">Jetzt buchen</a></div>
       </div>
     </div>
   </div>
 <div class="regal" id="regal">
-    <span class="regal-k"><span class="rk-d" data-en="The wall of polish · Altstadt — glide over it and pick your colour">Die Lackwand · Altstadt — fahren Sie darüber und wählen Sie Ihre Farbe</span><span class="rk-m" data-en="The wall of polish · swipe to pick your colour">Die Lackwand · wischen und Farbe wählen</span></span>
-    <div class="regal-in" id="regalIn"><img src="img/regal.webp" alt="Regal mit Nagellacken im Salon Altstadt" draggable="false" width="1107" height="104"></div><span class="needle" aria-hidden="true"></span>
+    <span class="regal-k"><span class="rk-d" data-en="The colour shelf — move across it, then tap a colour">Das Farbregal — mit der Maus darüber, dann Farbe antippen</span><span class="rk-m" data-en="The colour shelf · swipe and tap">Das Farbregal · wischen und antippen</span></span>
+    <div class="regal-in" id="regalIn"><img src="img/regal.webp" alt="Regal mit Nagellacken" draggable="false" width="2200" height="188"></div><span class="needle" aria-hidden="true"></span>
     <div class="regal-tip" id="regalTip" aria-hidden="true"><i></i><b data-en="Tap to take">Klick = übernehmen</b></div>
   </div>
 </section>
@@ -586,34 +691,34 @@ html.sv .akt-stage .vh:after{content:"";position:absolute;inset:0;pointer-events
 
 <!-- SPIELSTÄTTEN -->
 <section class="sec grain" id="salons">
-  <div class="drips" id="drips" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><defs><linearGradient id="lackG" x1="0" x2="1"><stop offset="0" style="stop-color:var(--pick)"/><stop offset=".42" style="stop-color:var(--pick-hi)"/><stop offset="1" style="stop-color:var(--pick)"/></linearGradient></defs><rect class="band" x="0" y="0" width="1440" height="7"/><path class="dr" style="--d:0.24s" d="M-3.1,0 C3.5,10 4.5,11.9 4.5,24.5 A9.5,9.5 0 0 0 23.5,24.5 C23.5,11.9 24.5,10 31.1,0 Z"/><path class="dr" style="--d:0.32s" d="M48.1,0 C52.0,10 52.5,38.5 52.5,104.5 A5.5,5.5 0 0 0 63.5,104.5 C63.5,38.5 64.0,10 67.9,0 Z"/><path class="dr" style="--d:0.13s" d="M133.0,0 C136.5,10 137.0,25.2 137.0,67.0 A5.0,5.0 0 0 0 147.0,67.0 C147.0,25.2 147.5,10 151.0,0 Z"/><path class="dr" style="--d:0.04s" d="M171.2,0 C178.9,10 180.0,20.3 180.0,47.0 A11.0,11.0 0 0 0 202.0,47.0 C202.0,20.3 203.1,10 210.8,0 Z"/><path class="dr" style="--d:0.50s" d="M220.2,0 C227.9,10 229.0,9.1 229.0,15.0 A11.0,11.0 0 0 0 251.0,15.0 C251.0,9.1 252.1,10 259.8,0 Z"/><path class="dr" style="--d:0.38s" d="M278.6,0 C284.2,10 285.0,31.5 285.0,82.0 A8.0,8.0 0 0 0 301.0,82.0 C301.0,31.5 301.8,10 307.4,0 Z"/><path class="dr" style="--d:0.59s" d="M319.1,0 C326.4,10 327.5,9.1 327.5,15.5 A10.5,10.5 0 0 0 348.5,15.5 C348.5,9.1 349.6,10 356.9,0 Z"/><path class="dr" style="--d:0.25s" d="M369.3,0 C373.9,10 374.5,15.4 374.5,37.5 A6.5,6.5 0 0 0 387.5,37.5 C387.5,15.4 388.1,10 392.7,0 Z"/><path class="dr" style="--d:0.19s" d="M477.2,0 C481.4,10 482.0,25.2 482.0,66.0 A6.0,6.0 0 0 0 494.0,66.0 C494.0,25.2 494.6,10 498.8,0 Z"/><path class="dr" style="--d:0.34s" d="M538.2,0 C542.4,10 543.0,25.2 543.0,66.0 A6.0,6.0 0 0 0 555.0,66.0 C555.0,25.2 555.6,10 559.8,0 Z"/><path class="dr" style="--d:0.33s" d="M593.0,0 C600.0,10 601.0,9.1 601.0,16.0 A10.0,10.0 0 0 0 621.0,16.0 C621.0,9.1 622.0,10 629.0,0 Z"/><path class="dr" style="--d:0.12s" d="M648.0,0 C651.5,10 652.0,25.2 652.0,67.0 A5.0,5.0 0 0 0 662.0,67.0 C662.0,25.2 662.5,10 666.0,0 Z"/><path class="dr" style="--d:0.19s" d="M743.2,0 C750.9,10 752.0,38.5 752.0,99.0 A11.0,11.0 0 0 0 774.0,99.0 C774.0,38.5 775.1,10 782.8,0 Z"/><path class="dr" style="--d:0.18s" d="M854.3,0 C862.4,10 863.5,15.4 863.5,32.5 A11.5,11.5 0 0 0 886.5,32.5 C886.5,15.4 887.6,10 895.7,0 Z"/><path class="dr" style="--d:0.34s" d="M921.6,0 C927.2,10 928.0,9.1 928.0,18.0 A8.0,8.0 0 0 0 944.0,18.0 C944.0,9.1 944.8,10 950.4,0 Z"/><path class="dr" style="--d:0.44s" d="M1019.4,0 C1027.8,10 1029.0,15.4 1029.0,32.0 A12.0,12.0 0 0 0 1053.0,32.0 C1053.0,15.4 1054.2,10 1062.6,0 Z"/><path class="dr" style="--d:0.31s" d="M1105.1,0 C1109.0,10 1109.5,9.1 1109.5,20.5 A5.5,5.5 0 0 0 1120.5,20.5 C1120.5,9.1 1121.0,10 1124.9,0 Z"/><path class="dr" style="--d:0.56s" d="M1156.9,0 C1163.5,10 1164.5,11.9 1164.5,24.5 A9.5,9.5 0 0 0 1183.5,24.5 C1183.5,11.9 1184.5,10 1191.1,0 Z"/><path class="dr" style="--d:0.05s" d="M1256.0,0 C1259.5,10 1260.0,31.5 1260.0,85.0 A5.0,5.0 0 0 0 1270.0,85.0 C1270.0,31.5 1270.5,10 1274.0,0 Z"/><path class="dr" style="--d:0.42s" d="M1356.9,0 C1363.5,10 1364.5,15.4 1364.5,34.5 A9.5,9.5 0 0 0 1383.5,34.5 C1383.5,15.4 1384.5,10 1391.1,0 Z"/></svg></div>
+  <div class="drips" id="drips" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><defs><linearGradient id="lackG" x1="0" x2="1"><stop offset="0" style="stop-color:var(--pick)"/><stop offset=".42" style="stop-color:var(--pick-hi)"/><stop offset="1" style="stop-color:var(--pick)"/></linearGradient></defs><linearGradient id="lackV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--pick);stop-opacity:0"/><stop offset="1" style="stop-color:var(--pick);stop-opacity:.75"/></linearGradient><rect class="band" x="0" y="0" width="1440" height="5" style="fill:url(#lackV)"/><path class="dr" style="--d:0.24s" d="M-3.1,0 C3.5,10 4.5,11.2 4.5,19.4 A9.5,9.5 0 0 0 23.5,19.4 C23.5,11.2 24.5,10 31.1,0 Z"/><path class="dr" style="--d:0.32s" d="M48.1,0 C52.0,10 52.5,28.5 52.5,71.4 A5.5,5.5 0 0 0 63.5,71.4 C63.5,28.5 64.0,10 67.9,0 Z"/><path class="dr" style="--d:0.13s" d="M133.0,0 C136.5,10 137.0,19.9 137.0,47.1 A5.0,5.0 0 0 0 147.0,47.1 C147.0,19.9 147.5,10 151.0,0 Z"/><path class="dr" style="--d:0.04s" d="M171.2,0 C178.9,10 180.0,16.7 180.0,34.0 A11.0,11.0 0 0 0 202.0,34.0 C202.0,16.7 203.1,10 210.8,0 Z"/><path class="dr" style="--d:0.50s" d="M220.2,0 C227.9,10 229.0,9.1 229.0,13.2 A11.0,11.0 0 0 0 251.0,13.2 C251.0,9.1 252.1,10 259.8,0 Z"/><path class="dr" style="--d:0.38s" d="M278.6,0 C284.2,10 285.0,24.0 285.0,56.8 A8.0,8.0 0 0 0 301.0,56.8 C301.0,24.0 301.8,10 307.4,0 Z"/><path class="dr" style="--d:0.59s" d="M319.1,0 C326.4,10 327.5,9.1 327.5,13.6 A10.5,10.5 0 0 0 348.5,13.6 C348.5,9.1 349.6,10 356.9,0 Z"/><path class="dr" style="--d:0.25s" d="M369.3,0 C373.9,10 374.5,13.5 374.5,27.9 A6.5,6.5 0 0 0 387.5,27.9 C387.5,13.5 388.1,10 392.7,0 Z"/><path class="dr" style="--d:0.19s" d="M477.2,0 C481.4,10 482.0,19.9 482.0,46.4 A6.0,6.0 0 0 0 494.0,46.4 C494.0,19.9 494.6,10 498.8,0 Z"/><path class="dr" style="--d:0.34s" d="M538.2,0 C542.4,10 543.0,19.9 543.0,46.4 A6.0,6.0 0 0 0 555.0,46.4 C555.0,19.9 555.6,10 559.8,0 Z"/><path class="dr" style="--d:0.33s" d="M593.0,0 C600.0,10 601.0,9.1 601.0,13.9 A10.0,10.0 0 0 0 621.0,13.9 C621.0,9.1 622.0,10 629.0,0 Z"/><path class="dr" style="--d:0.12s" d="M648.0,0 C651.5,10 652.0,19.9 652.0,47.1 A5.0,5.0 0 0 0 662.0,47.1 C662.0,19.9 662.5,10 666.0,0 Z"/><path class="dr" style="--d:0.19s" d="M743.2,0 C750.9,10 752.0,28.5 752.0,67.8 A11.0,11.0 0 0 0 774.0,67.8 C774.0,28.5 775.1,10 782.8,0 Z"/><path class="dr" style="--d:0.18s" d="M854.3,0 C862.4,10 863.5,13.5 863.5,24.6 A11.5,11.5 0 0 0 886.5,24.6 C886.5,13.5 887.6,10 895.7,0 Z"/><path class="dr" style="--d:0.34s" d="M921.6,0 C927.2,10 928.0,9.1 928.0,15.2 A8.0,8.0 0 0 0 944.0,15.2 C944.0,9.1 944.8,10 950.4,0 Z"/><path class="dr" style="--d:0.44s" d="M1019.4,0 C1027.8,10 1029.0,13.5 1029.0,24.3 A12.0,12.0 0 0 0 1053.0,24.3 C1053.0,13.5 1054.2,10 1062.6,0 Z"/><path class="dr" style="--d:0.31s" d="M1105.1,0 C1109.0,10 1109.5,9.1 1109.5,16.8 A5.5,5.5 0 0 0 1120.5,16.8 C1120.5,9.1 1121.0,10 1124.9,0 Z"/><path class="dr" style="--d:0.56s" d="M1156.9,0 C1163.5,10 1164.5,11.2 1164.5,19.4 A9.5,9.5 0 0 0 1183.5,19.4 C1183.5,11.2 1184.5,10 1191.1,0 Z"/><path class="dr" style="--d:0.05s" d="M1256.0,0 C1259.5,10 1260.0,24.0 1260.0,58.8 A5.0,5.0 0 0 0 1270.0,58.8 C1270.0,24.0 1270.5,10 1274.0,0 Z"/><path class="dr" style="--d:0.42s" d="M1356.9,0 C1363.5,10 1364.5,13.5 1364.5,25.9 A9.5,9.5 0 0 0 1383.5,25.9 C1383.5,13.5 1384.5,10 1391.1,0 Z"/></svg></div>
   <div class="wrap">
     <div class="sec-head reveal">
-      <div><span class="kicker" data-en="Two salons · one signature">Zwei Salons · eine Handschrift</span>
-      <h2 class="t" data-en="Choose your <em>salon.</em>">Wählen Sie Ihren <em>Salon.</em></h2></div>
-      <p class="lead" data-en="Same team standard everywhere: careful prep, clean work and nails that last. Pick the place that suits your day.">Überall derselbe Standard: sorgfältige Vorbereitung, saubere Arbeit, Nägel, die halten. Wählen Sie den Ort, der zu Ihrem Tag passt.</p>
+      <div><span class="kicker" data-en="Two studios · one menu">Zwei Studios · eine Karte</span>
+      <h2 class="t" data-en="Where shall <em>it be?</em>">Wo darf <em>es sein?</em></h2></div>
+      <p class="lead" data-en="Old Town or Bruch quarter – both studios work from the same menu. Take whichever is closer.">Altstadt oder Bruchquartier – beide Studios arbeiten nach derselben Karte. Nehmen Sie das, was näher liegt.</p>
     </div>
     <div class="stages reveal" role="tablist" aria-label="Salon wählen">
-      <button class="stagecard on" data-s="seefeld" role="tab" aria-selected="true">
-        <img loading="lazy" src="img/lackwand.webp" alt="Salon Altstadt: Empfang aus Nussbaum, Wand mit Nagellacken">
+      <button class="stagecard on" data-s="altstadt" role="tab" aria-selected="true">
+        <img loading="lazy" src="img/lackwand.webp" alt="Studio Altstadt mit Farbregal">
         <span class="sel" data-en="Selected">Gewählt</span>
         <span class="no" data-en="I · The original · since 2014">I · Das Original · seit 2014</span>
         <h3>Altstadt <em style="font-style:italic;color:var(--gold-2)">am Theater</em></h3>
-        <p data-en="Where it all started. Full nail menu plus hair, make-up and Hydralips.">Hier hat alles angefangen. Das volle Nagel-Programm, dazu Hair, Make-up und Hydralips.</p>
+        <p data-en="The first studio, right by the theatre. Lashes and brows are here too.">Das erste Studio, gleich beim Theater. Hier gibt es auch Wimpern und Brauen.</p>
       </button>
-      <button class="stagecard" data-s="schaffhauserplatz" role="tab" aria-selected="false">
+      <button class="stagecard" data-s="bruch" role="tab" aria-selected="false">
         <img loading="lazy" src="img/lackwand_hoch.webp" alt="Salon Bruchquartier mit Rattan-Leuchten">
         <span class="sel" data-en="Choose">Wählen</span>
-        <span class="no" data-en="II · With guest parking">II · Mit Gäste-Parkplatz</span>
+        <span class="no" data-en="II · Full of daylight">II · Mit viel Tageslicht</span>
         <h3>Bruchquartier</h3>
-        <p data-en="Bright and calm. Parking spaces 2 and 3 in front of the door are reserved for you.">Hell und ruhig. Parkplatz 2 und 3 direkt vor der Tür sind für Sie reserviert.</p>
+        <p data-en="Big windows, quiet music – and the bus stop is just around the corner.">Grosse Fenster, leise Musik – und die Bushaltestelle liegt gleich um die Ecke.</p>
       </button>
       <button class="stagecard" data-s="zuhause" role="tab" aria-selected="false">
         <img loading="lazy" src="img/hand_04.webp" alt="Pedicure mit Fussmassage">
         <span class="sel" data-en="Choose">Wählen</span>
-        <span class="no" data-en="III · House calls">III · Hausbesuch</span>
-        <h3 data-en="At your place">Bei Ihnen <em style="font-style:italic;color:var(--gold-2)">zu Hause</em></h3>
-        <p data-en="No time to come in? We come to you – for the salon standard at home, for shoots or weddings.">Keine Zeit für den Salon? Wir kommen zu Ihnen – für zu Hause, Shootings oder Hochzeiten.</p>
+        <span class="no" data-en="III · Mobile">III · Mobil</span>
+        <h3 data-en="On the road">Unterwegs <em style="font-style:italic;color:var(--gold-2)">zu Ihnen</em></h3>
+        <p data-en="For weddings, photo shoots and anyone who would rather stay in: we bring the studio along.">Für Hochzeiten, Fotoshootings und alle, die lieber daheim bleiben: Wir bringen das Studio mit.</p>
       </button>
     </div>
     <div class="salon-info reveal" id="salonInfo"><span class="wipe" aria-hidden="true"></span>
@@ -638,8 +743,8 @@ html.sv .akt-stage .vh:after{content:"";position:absolute;inset:0;pointer-events
     <div class="sec-head reveal">
       <div><span class="kicker" data-en="Fitting room · try before you book">Garderobe · erst anprobieren, dann buchen</span>
       <h2 class="t" data-en="The fitting room – <em>your set in the mirror.</em>">Die Anprobe – <em>Ihr Set im Spiegel.</em></h2></div>
-      <p class="lead" data-en="Length, shape, design and finish – the hand shows it, the price follows the VERNIS menu. Bring it along or show it at the desk.">Länge, Form, Design und Effekt – die Hand zeigt es, der Preis folgt der VERNIS-Preisliste. Zeigen Sie Ihr Set einfach am Empfang.</p>
-      <button class="wandchip" id="wandChip" hidden><i></i><span data-en="Use your colour from the polish wall">Ihre Farbe von der Lackwand übernehmen</span></button>
+      <p class="lead" data-en="Try colour, length and shape in the mirror – the price is right next to it. Show the ticket at your appointment.">Probieren Sie Farbe, Länge und Form im Spiegel aus – der Preis steht gleich daneben. Das Ticket zeigen Sie beim Termin.</p>
+      <button class="wandchip" id="wandChip" hidden><i></i><span data-en="Take the colour from the shelf">Farbe vom Regal mitnehmen</span></button>
     </div>
 <div class="anprobe" id="anprobe">
       <div class="ap-side ap-left">
@@ -667,104 +772,97 @@ html.sv .akt-stage .vh:after{content:"";position:absolute;inset:0;pointer-events
 <section class="sec grain" id="programm">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div><span class="kicker" data-en="The programme · prices in CHF">Das Programm · Preise in CHF</span>
-      <h2 class="t" data-en="Five acts, <em>one standard.</em>">Fünf Akte, <em>ein Standard.</em></h2></div>
-      <p class="lead" data-en="All prices as on the studio price list. Manicures with colour are always Gellack.">Alle Preise wie auf der Preisliste im Studio. Manicure mit Farbe ist bei uns immer Gellack.</p>
+      <div><span class="kicker" data-en="Playbill · prices in CHF">Spielplan · Preise in CHF</span>
+      <h2 class="t" data-en="The menu <em>in five acts.</em>">Die Karte <em>in fünf Akten.</em></h2></div>
+      <p class="lead" data-en="Our menu in five acts. Colour always goes on as gel polish and lasts until your next visit.">Unsere Karte in fünf Akten. Farbe tragen wir immer als Gellack auf, er hält bis zum nächsten Termin.</p>
     </div>
     <div class="prog reveal">
       <div class="akte" role="tablist" aria-label="Kategorie">
-        <button class="on" data-a="1"><span>Akt I</span><b>Manicure</b></button>
-        <button data-a="2"><span>Akt II</span><b>BIAB &amp; Extensions</b></button>
+        <button class="on" data-a="1"><span>Akt I</span><b data-en="Manicure">Maniküre</b></button>
+        <button data-a="2"><span>Akt II</span><b data-en="Gel &amp; extensions">Gel &amp; Verlängerung</b></button>
         <button data-a="3"><span>Akt III</span><b>Nail Art</b></button>
-        <button data-a="4"><span>Akt IV</span><b>Pedicure</b></button>
-        <button data-a="5"><span>Zugabe</span><b data-en="Lashes &amp; Brows">Lashes &amp; Brows</b></button>
+        <button data-a="4"><span>Akt IV</span><b data-en="Pedicure">Pediküre</b></button>
+        <button data-a="5"><span>Zugabe</span><b data-en="Lashes &amp; brows">Wimpern &amp; Brauen</b></button>
       </div>
       <div class="akt-stage" id="aktStage"><span class="vh l"></span><span class="vh r"></span><span class="akt-no" id="aktNo">I</span>
         <div class="akt on" data-a="1">
-          <h3>Manicure</h3><p class="sub" data-en="Russian manicure with the e-file: precise cuticle work, without harsh cutting.">Russian Manicure mit E-File: präzise Nagelhautpflege, ohne grobes Schneiden.</p>
+          <h3 data-en="Manicure">Maniküre</h3><p class="sub" data-en="Dry manicure with fine burrs – neat cuticles, no soaking at all.">Trockene Maniküre mit feinen Fräsern – gepflegte Nagelhaut, ganz ohne Einweichen.</p>
           <div class="akt-cols">
-          <div class="grp"><h5 data-en="With Gellack">Mit Gellack</h5>
-          <div class="prow"><span>Quick Russian Mani + Gellack, inkl. Ablösen</span><small>60 Min.</small><b>95.–</b></div>
-          <div class="prow"><span>LUX Russian Mani + Gellack</span><small>60 Min.</small><b><em>ab</em>100.–</b></div>
-          <div class="prow"><span>LUX Russian Mani + Gellack, inkl. Ablösen</span><small>70 Min.</small><b>120.–</b></div>
-          <div class="prow"><span>Sculpted Russian Manicure</span><small>105 Min.</small><b>165.–</b></div>
-          <div class="prow"><span>Japanese Manicure</span><small>60 Min.</small><b>75.–</b></div></div>
-          <div class="grp"><h5 data-en="Without colour">Ohne Farbe</h5>
-          <div class="prow"><span>Quick Mani</span><small>30 Min.</small><b><em>ab</em>55.–</b></div>
-          <div class="prow"><span>LUX Mani</span><small>45 Min.</small><b>85.–</b></div>
-          <div class="prow"><span>MENicure</span><small>30–45 Min.</small><b><em>ab</em>55.–</b></div>
-          <div class="prow"><span>Hand SPA</span><small>30 Min.</small><b>45.–</b></div></div>
-          <div class="grp"><h5 data-en="New here?">Neu bei uns?</h5>
-          <div class="prow"><span>Expert's Choice – Trust the Process</span><small>75–105 Min.</small><b><em>ab</em>110.–</b></div>
-          <div class="prow"><span>Erstberatung für Neukundinnen</span><small>105 Min.</small><b>140.–</b></div></div>
+          <div class="grp"><h5 data-en="With colour">Mit Farbe</h5>
+          <div class="prow"><span>Premiere-Maniküre mit Gellack</span><small>55 Min.</small><b>92.–</b></div>
+          <div class="prow"><span>Premiere-Maniküre, Abnahme inbegriffen</span><small>65 Min.</small><b>104.–</b></div>
+          <div class="prow"><span>Grand-Maniküre mit Handpackung</span><small>80 Min.</small><b>128.–</b></div>
+          <div class="prow"><span>Aufbau-Maniküre mit Gel-Overlay</span><small>100 Min.</small><b>158.–</b></div></div>
+          <div class="grp"><h5 data-en="Care only">Pflege pur</h5>
+          <div class="prow"><span>Kurzmaniküre ohne Lack</span><small>25 Min.</small><b>48.–</b></div>
+          <div class="prow"><span>Pflegemaniküre mit Peeling</span><small>40 Min.</small><b>72.–</b></div>
+          <div class="prow"><span>Herrenmaniküre</span><small>35 Min.</small><b><em>ab</em>58.–</b></div>
+          <div class="prow"><span>Warmes Paraffin-Handbad</span><small>20 Min.</small><b>38.–</b></div></div>
+          <div class="grp"><h5 data-en="First visit">Zum Kennenlernen</h5>
+          <div class="prow"><span>Beratung mit Probe-Nagel</span><small>50 Min.</small><b>68.–</b></div></div>
           </div>
         </div>
         <div class="akt" data-a="2">
-          <h3>BIAB &amp; Extensions</h3><p class="sub" data-en="X-Build BIAB strengthens natural nails; X-Press, gel or acrylic for length.">X-Build BIAB stärkt den Naturnagel; X-Press, Gel oder Acryl für Länge.</p>
+          <h3 data-en="Gel &amp; extensions">Gel &amp; Verlängerung</h3><p class="sub" data-en="An overlay strengthens your own nail; for length we use tips or forms.">Overlay stärkt den eigenen Nagel; für Länge arbeiten wir mit Tips oder auf Schablone.</p>
           <div class="akt-cols">
-          <div class="grp"><h5>BIAB</h5>
-          <div class="prow"><span>BIAB Russian Manicure S (bis 2 mm)</span><small>60 Min.</small><b>90.–</b></div>
-          <div class="prow"><span>X-Build BIAB Russian Manicure M (bis 4 mm)</span><small>75 Min.</small><b>140.–</b></div>
-          <div class="prow"><span>BIAB Infill S (bis 2 mm)</span><small>75 Min.</small><b>120.–</b></div></div>
-          <div class="grp"><h5 data-en="New set">Neues Set</h5>
-          <div class="prow"><span>X-Press, neues Set mit Verlängerung</span><small>90 Min.</small><b>170.–</b></div>
-          <div class="prow"><span>X-Press, neues Set inkl. Ablösen</span><small>120 Min.</small><b>185.–</b></div>
-          <div class="prow"><span>Gel, neues Set mit Schablone</span><small>120 Min.</small><b>200.–</b></div></div>
-          <div class="grp"><h5 data-en="Infill">Auffüllen</h5>
-          <div class="prow"><span>Infill S (bis 3 Wochen)</span><small>90 Min.</small><b>110.–</b></div>
-          <div class="prow"><span>Infill M (4–5 Wochen)</span><small>90 Min.</small><b>120.–</b></div>
-          <div class="prow"><span>Infill L (ab 5 Wochen)</span><small>105 Min.</small><b>130.–</b></div></div>
-          <div class="grp"><h5 data-en="Removal &amp; repair">Ablösen &amp; Reparatur</h5>
-          <div class="prow"><span>Gellack / BIAB / X-Press ablösen</span><small>15–30 Min.</small><b>30.–</b></div>
-          <div class="prow"><span>Acryl / Hard Gel ablösen</span><small>30 Min.</small><b>45.–</b></div>
-          <div class="prow"><span>1 Nagel reparieren</span><small>15 Min.</small><b>15.–</b></div>
-          <div class="prow"><span>Neue Form</span><small>15 Min.</small><b>15.–</b></div></div>
+          <div class="grp"><h5>Overlay</h5>
+          <div class="prow"><span>Gel-Overlay kurz</span><small>70 Min.</small><b>112.–</b></div>
+          <div class="prow"><span>Gel-Overlay lang</span><small>85 Min.</small><b>132.–</b></div>
+          <div class="prow"><span>Overlay-Refill</span><small>65 Min.</small><b>98.–</b></div></div>
+          <div class="grp"><h5 data-en="Extensions">Verlängerung</h5>
+          <div class="prow"><span>Tip-Verlängerung, ganzes Set</span><small>110 Min.</small><b>176.–</b></div>
+          <div class="prow"><span>Modellage auf Schablone, ganzes Set</span><small>130 Min.</small><b>194.–</b></div></div>
+          <div class="grp"><h5>Refill</h5>
+          <div class="prow"><span>Refill nach drei Wochen</span><small>95 Min.</small><b>116.–</b></div>
+          <div class="prow"><span>Refill nach vier Wochen</span><small>100 Min.</small><b>126.–</b></div></div>
+          <div class="grp"><h5 data-en="Small jobs">Kleinigkeiten</h5>
+          <div class="prow"><span>Abnahme von Gel oder Lack</span><small>20 Min.</small><b>26.–</b></div>
+          <div class="prow"><span>Abnahme von Acryl</span><small>35 Min.</small><b>42.–</b></div>
+          <div class="prow"><span>Einzelnen Nagel ersetzen</span><small>12 Min.</small><b>12.–</b></div>
+          <div class="prow"><span>Formwechsel</span><small>20 Min.</small><b>18.–</b></div></div>
           </div>
         </div>
         <div class="akt" data-a="3">
-          <h3>Nail Art</h3><p class="sub" data-en="Billed by time. Send your inspiration by DM – we plan it with you.">Abgerechnet nach Zeit. Schicken Sie Ihre Inspiration per DM – wir planen es mit Ihnen.</p>
+          <h3>Nail Art</h3><p class="sub" data-en="Charged by the minute. Bring a picture and we will create it together.">Nach Minuten gerechnet. Bringen Sie ein Bild mit, wir setzen es zusammen um.</p>
           <div class="akt-cols">
           <div class="grp"><h5 data-en="Classics">Klassiker</h5>
-          <div class="prow"><span>French Tips</span><small>10 Min.</small><b>15.–</b></div>
-          <div class="prow"><span>Glazed, Chrome, «Bieber»</span><small>15 Min.</small><b>20.–</b></div>
-          <div class="prow"><span>Baby Boomer, Ombré, Airbrush</span><small>25 Min.</small><b>25.–</b></div></div>
-          <div class="grp"><h5 data-en="Free design">Freies Design</h5>
-          <div class="prow"><span>5 Min. Nail Art</span><small>5 Min.</small><b>5.–</b></div>
-          <div class="prow"><span>15 Min. Nail Art</span><small>15 Min.</small><b>15.–</b></div>
-          <div class="prow"><span>30 Min. Nail Art</span><small>30 Min.</small><b>30.–</b></div>
-          <div class="prow"><span>60 Min. Nail Art</span><small>60 Min.</small><b>55.–</b></div></div>
+          <div class="prow"><span>French-Spitzen</span><small>12 Min.</small><b>16.–</b></div>
+          <div class="prow"><span>Chrom- oder Perlmutt-Finish</span><small>18 Min.</small><b>22.–</b></div>
+          <div class="prow"><span>Farbverlauf</span><small>28 Min.</small><b>28.–</b></div></div>
+          <div class="grp"><h5 data-en="Freehand">Freihand</h5>
+          <div class="prow"><span>Kleines Motiv</span><small>8 Min.</small><b>8.–</b></div>
+          <div class="prow"><span>Motiv auf zwei Nägeln</span><small>20 Min.</small><b>18.–</b></div>
+          <div class="prow"><span>Ganze Hand</span><small>40 Min.</small><b>38.–</b></div>
+          <div class="prow"><span>Statement-Set</span><small>70 Min.</small><b>62.–</b></div></div>
           </div>
         </div>
         <div class="akt" data-a="4">
-          <h3>Pedicure</h3><p class="sub" data-en="Quick, Signature with massage, or LUX – your moment to relax.">Quick, Signature mit Massage oder LUX – Ihr Moment zum Durchatmen.</p>
+          <h3 data-en="Pedicure">Pediküre</h3><p class="sub" data-en="Foot care in the armchair with a heat pad – short, classic or long.">Fusspflege im Sessel mit Wärmekissen – kurz, klassisch oder ausgiebig.</p>
           <div class="akt-cols">
-          <div class="grp"><h5 data-en="With Gellack">Mit Gellack</h5>
-          <div class="prow"><span>Quick Pedi</span><small>45 Min.</small><b>75.–</b></div>
-          <div class="prow"><span>Quick Pedi, inkl. Ablösen</span><small>45 Min.</small><b>90.–</b></div>
-          <div class="prow"><span>Signature Pedi</span><small>60 Min.</small><b>125.–</b></div>
-          <div class="prow"><span>Signature Pedi, inkl. Ablösen</span><small>60 Min.</small><b>140.–</b></div>
-          <div class="prow"><span>LUX Pedi</span><small>75 Min.</small><b>140.–</b></div>
-          <div class="prow"><span>LUX Pedi, inkl. Ablösen</span><small>90 Min.</small><b>155.–</b></div></div>
-          <div class="grp"><h5 data-en="Without colour &amp; extras">Ohne Farbe &amp; Extras</h5>
-          <div class="prow"><span>Signature Pedi ohne Farbe</span><small>45 Min.</small><b>110.–</b></div>
-          <div class="prow"><span>LUX Pedi ohne Farbe</span><small>60 Min.</small><b>125.–</b></div>
-          <div class="prow"><span>Extra-Pflege bei Hornhaut</span><small>10 Min.</small><b>15.–</b></div>
-          <div class="prow"><span>Polygel-Fix Fussnagel</span><small>15 Min.</small><b>15.–</b></div></div>
+          <div class="grp"><h5 data-en="With colour">Mit Farbe</h5>
+          <div class="prow"><span>Kurzpediküre mit Gellack</span><small>50 Min.</small><b>82.–</b></div>
+          <div class="prow"><span>Kurzpediküre, Abnahme inbegriffen</span><small>55 Min.</small><b>94.–</b></div>
+          <div class="prow"><span>Klassische Pediküre mit Gellack</span><small>70 Min.</small><b>118.–</b></div>
+          <div class="prow"><span>Klassische Pediküre, Abnahme inbegriffen</span><small>75 Min.</small><b>129.–</b></div>
+          <div class="prow"><span>Spa-Pediküre mit Gellack</span><small>85 Min.</small><b>146.–</b></div></div>
+          <div class="grp"><h5 data-en="Without colour">Ohne Farbe</h5>
+          <div class="prow"><span>Klassische Pediküre ohne Lack</span><small>55 Min.</small><b>96.–</b></div>
+          <div class="prow"><span>Spa-Pediküre ohne Lack</span><small>70 Min.</small><b>128.–</b></div>
+          <div class="prow"><span>Hornhaut-Extra</span><small>12 Min.</small><b>14.–</b></div></div>
           </div>
         </div>
         <div class="akt" data-a="5">
-          <h3>Lashes, Brows &amp; Lips</h3><p class="sub" data-en="The finishing touch – at Altstadt.">Der letzte Schliff – im Salon Altstadt.</p>
+          <h3 data-en="Lashes &amp; brows">Wimpern &amp; Brauen</h3><p class="sub" data-en="The finishing touch for your eyes.">Der Feinschliff für den Blick.</p>
           <div class="akt-cols">
-          <div class="grp"><h5>Lashes</h5>
-          <div class="prow"><span>Lash Lift, Tint &amp; Keratin</span><small>60 Min.</small><b><em>ab</em>80.–</b></div>
-          <div class="prow"><span>1:1 Natural Look, neues Set</span><small>90 Min.</small><b>140.–</b></div>
-          <div class="prow"><span>2D Discreet Volume, neues Set</span><small>90 Min.</small><b>140.–</b></div>
-          <div class="prow"><span>Auffüllen nach 2 Wochen</span><small>60 Min.</small><b>90.–</b></div></div>
-          <div class="grp"><h5>Brows &amp; Lips</h5>
-          <div class="prow"><span>Brow Shape &amp; Tint</span><small>30 Min.</small><b>45.–</b></div>
-          <div class="prow"><span>Brow Lamination &amp; Tint</span><small>30 Min.</small><b>85.–</b></div>
-          <div class="prow"><span>Brow Lamination, Tint &amp; Design</span><small>60 Min.</small><b>120.–</b></div>
-          <div class="prow"><span>Hydralips</span><small>30 Min.</small><b>75.–</b></div></div>
+          <div class="grp"><h5 data-en="Lashes">Wimpern</h5>
+          <div class="prow"><span>Wimpernlifting mit Färben</span><small>55 Min.</small><b>84.–</b></div>
+          <div class="prow"><span>Klassisches Wimpern-Set</span><small>100 Min.</small><b>148.–</b></div>
+          <div class="prow"><span>Leichtes Volumen-Set</span><small>110 Min.</small><b>158.–</b></div>
+          <div class="prow"><span>Wimpern-Refill nach zwei Wochen</span><small>55 Min.</small><b>78.–</b></div></div>
+          <div class="grp"><h5 data-en="Brows">Brauen</h5>
+          <div class="prow"><span>Brauen zupfen und färben</span><small>25 Min.</small><b>40.–</b></div>
+          <div class="prow"><span>Brauenlifting mit Färben</span><small>40 Min.</small><b>78.–</b></div>
+          <div class="prow"><span>Brauenlifting mit Styling</span><small>55 Min.</small><b>98.–</b></div></div>
           </div>
         </div>
       </div>
@@ -777,8 +875,7 @@ html.sv .akt-stage .vh:after{content:"";position:absolute;inset:0;pointer-events
   <div class="wrap">
     <div class="sec-head reveal">
       <div><span class="kicker">#vernisluzern · @vernis.studio</span>
-      <h2 class="t" data-en="Fresh from <em>the salon.</em>">Frisch aus <em>dem Salon.</em></h2></div>
-      <a class="btn btn-ghost" href="#" target="_blank" rel="noopener" data-en="Instagram">Instagram</a>
+      <h2 class="t" data-en="Straight from <em>the dressing room.</em>">Direkt aus <em>der Garderobe.</em></h2></div>
     </div>
     <div class="strip-wrap reveal">
       <button class="arr l" aria-label="Zurück"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
@@ -790,7 +887,7 @@ html.sv .akt-stage .vh:after{content:"";position:absolute;inset:0;pointer-events
         <figure><img loading="lazy" src="img/hand_15.webp" alt="Rosa Mandel"><figcaption>Black Gloss</figcaption></figure>
         <figure><img loading="lazy" src="img/hand_16.webp" alt="Nude mit Handcreme"><figcaption>Lilac</figcaption></figure>
         <figure><img loading="lazy" src="img/hand_17.webp" alt="Rosa BIAB"><figcaption>Aqua</figcaption></figure>
-        <figure><img loading="lazy" src="img/hand_06.webp" alt="Lash Lift vorher und nachher"><figcaption>Milky</figcaption></figure>
+        <figure><img loading="lazy" src="img/hand_06.webp" alt="Wimpernlifting – vorher, nachher"><figcaption>Milky</figcaption></figure>
         <figure><img loading="lazy" src="img/hand_12.webp" alt="Pedicure"><figcaption>Cherry Red</figcaption></figure>
       </div>
       <button class="arr r" aria-label="Weiter"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
@@ -803,8 +900,8 @@ html.sv .akt-stage .vh:after{content:"";position:absolute;inset:0;pointer-events
 <section class="sec grain" id="kritiken">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div><span class="kicker" data-en="The reviews">Die Kritiken</span>
-      <h2 class="t" data-en="Standing <em>ovations.</em>">Standing <em>Ovations.</em></h2></div>
+      <div><span class="kicker" data-en="Voices">Stimmen</span>
+      <h2 class="t" data-en="Applause <em>from the stalls.</em>">Applaus <em>aus dem Parkett.</em></h2></div>
       <div class="score"><div><b>5,0</b>Google</div><div><b>600+</b><span data-en="reviews">Bewertungen</span></div></div>
     </div>
     <div class="krit reveal">
@@ -826,8 +923,8 @@ html.sv .akt-stage .vh:after{content:"";position:absolute;inset:0;pointer-events
   <div class="wrap">
     <div class="sec-head reveal">
       <div><span class="kicker">VERNIS Academy</span>
-      <h2 class="t" data-en="From nail tech <em>to nail boss.</em>">Vom Nail Tech <em>zum Nail Boss.</em></h2></div>
-      <p class="lead" data-en="Our founder has more than 20 years in nails and trains nail artists from all over Switzerland. Courses in English and Spanish.">Unsere Gründerin arbeitet seit über 20 Jahren mit Nägeln und bildet Nail Artists aus der ganzen Schweiz aus. Kurse auf Englisch und Spanisch.</p>
+      <h2 class="t" data-en="From the first file <em>to your own studio.</em>">Von der ersten Feile <em>bis ins eigene Studio.</em></h2></div>
+      <p class="lead" data-en="Our founder learned her craft in Paris and Milan and now passes it on in small groups – in German and Italian.">Unsere Gründerin hat das Handwerk in Paris und Mailand gelernt und gibt es heute in kleinen Gruppen weiter – auf Deutsch und Italienisch.</p>
     </div>
     <div class="ac-grid reveal">
       <div>
@@ -835,12 +932,12 @@ html.sv .akt-stage .vh:after{content:"";position:absolute;inset:0;pointer-events
       </div>
       <div>
         <div class="passes">
-          <div class="pass"><span class="lv" data-en="Start · 2 days">Einstieg · 2 Tage</span><h4>Manicure: E-File, Hybrid, Russian, Japanese</h4><p data-en="First things first – your best start in the nail industry.">Das Fundament – Ihr bester Start in die Nail-Branche.</p><div class="pm"><small>2 Tage</small><b>CHF 1380</b></div></div>
-          <div class="pass"><span class="lv" data-en="Systems · 2 days">Systeme · 2 Tage</span><h4>X-Press Nails, Gel System &amp; BIAB</h4><p data-en="For beginners with some experience who want to go further.">Für den Einstieg mit etwas Erfahrung, zum Weiterkommen.</p><div class="pm"><small>2 Tage</small><b>CHF 1380</b></div></div>
-          <div class="pass"><span class="lv" data-en="Pros · 5 hours">Profis · 5 Stunden</span><h4>X-Press Nails (Gel X)</h4><p data-en="For nail techs switching to the X-Press system.">Für Nail Techs, die auf das X-Press-System umsteigen.</p><div class="pm"><small>5 Std.</small><b>CHF 460</b></div></div>
-          <div class="pass"><span class="lv" data-en="Feet · 2 days">Füsse · 2 Tage</span><h4>Aesthetic Pedicure mit Pododisc</h4><p data-en="Modern dry pedicure technique.">Moderne Pedicure-Technik mit Pododisc.</p><div class="pm"><small>2 Tage</small><b>CHF 1380</b></div></div>
-          <div class="pass"><span class="lv" data-en="All in one · 6 days">Alles in einem · 6 Tage</span><h4>All-in-one Nail Professional</h4><p data-en="Six days, including certificates – to become a nail professional.">Sechs Tage inkl. Zertifikaten – der Weg zum Nail Professional.</p><div class="pm"><small>6 Tage</small><b>CHF 3680</b></div></div>
-          <div class="pass boss"><span class="lv">Masterclass · 2 Tage</span><h4>Nail Boss Masterclass</h4><p data-en="Become self-employed and open your own beauty salon.">Selbstständig werden und den eigenen Beauty-Salon eröffnen.</p><div class="pm"><small>2 Tage</small><b>CHF 1840</b></div></div>
+          <div class="pass"><span class="lv" data-en="Basics · 3 days">Grundkurs · 3 Tage</span><h4 data-en="Manicure from scratch">Maniküre von Grund auf</h4><p data-en="Cuticles, filing, polish: everything a clean manicure needs.">Nagelhaut, Feilen, Lack: alles, was eine saubere Maniküre braucht.</p><div class="pm"><small>3 Tage</small><b>CHF 1290</b></div></div>
+          <div class="pass"><span class="lv" data-en="Next step · 2 days">Aufbau · 2 Tage</span><h4 data-en="Gel sculpting &amp; overlay">Gel-Modellage &amp; Overlay</h4><p data-en="For those who can already file and now want length.">Für alle, die schon feilen können und jetzt Länge lernen wollen.</p><div class="pm"><small>2 Tage</small><b>CHF 1150</b></div></div>
+          <div class="pass"><span class="lv" data-en="Compact · 4 hours">Kompakt · 4 Stunden</span><h4 data-en="Tips in one afternoon">Tips an einem Nachmittag</h4><p data-en="A quick switch to tip extensions.">Der schnelle Umstieg auf Tip-Verlängerung.</p><div class="pm"><small>4 Std.</small><b>CHF 390</b></div></div>
+          <div class="pass"><span class="lv" data-en="Feet · 1 day">Füsse · 1 Tag</span><h4 data-en="Spa pedicure">Spa-Pediküre</h4><p data-en="Routine, hygiene and massage for foot care.">Ablauf, Hygiene und Massage für die Fusspflege.</p><div class="pm"><small>1 Tag</small><b>CHF 640</b></div></div>
+          <div class="pass"><span class="lv" data-en="Complete · 5 days">Komplett · 5 Tage</span><h4 data-en="Nail designer, complete">Nageldesignerin komplett</h4><p data-en="Five days with a final exam and certificate.">Fünf Tage mit Abschlussprüfung und Zertifikat.</p><div class="pm"><small>5 Tage</small><b>CHF 2950</b></div></div>
+          <div class="pass boss"><span class="lv">Masterclass · 1 Tag</span><h4 data-en="From your chair to your own studio">Vom Platz zum eigenen Studio</h4><p data-en="Prices, bookings, clients: planning your own studio.">Preise, Termine, Kundinnen: das eigene Studio planen.</p><div class="pm"><small>1 Tag</small><b>CHF 820</b></div></div>
         </div>
         <div class="ac-cta"><a class="btn btn-ink" href="#" target="_blank" rel="noopener" data-en="All courses">Alle Kurse</a><a class="btn btn-ghost" href="tel:+41410000000" data-en="Ask the academy">Academy anfragen</a></div>
       </div>
@@ -854,15 +951,15 @@ html.sv .akt-stage .vh:after{content:"";position:absolute;inset:0;pointer-events
   <div class="wrap">
     <div class="fin-grid reveal">
       <div>
-        <span class="kicker" data-en="Curtain call">Vorhang</span>
-        <p class="fin-big" style="margin-top:12px" data-en="Until the next <em>performance.</em>">Bis zur nächsten <em>Vorstellung.</em></p>
+        <span class="kicker" data-en="Encore">Zugabe</span>
+        <p class="fin-big" style="margin-top:12px" data-en="See you <em>after the interval.</em>">Wir sehen uns <em>nach der Pause.</em></p>
         <div class="fin-adr">
-          <a href="#" target="_blank" rel="noopener"><small>Altstadt</small><b>Theaterstrasse 7</b><span>6003 Luzern · Mo–Fr 9–19, Sa 9–16</span></a>
-          <a href="#" target="_blank" rel="noopener"><small>Bruchquartier</small><b>Bruchstrasse 30</b><span>6003 Luzern · Mo–Fr 9–19, Sa 9–16</span></a>
+          <a href="#" target="_blank" rel="noopener"><small>Altstadt</small><b>Theaterstrasse 7</b><span>6003 Luzern · Di–Fr 9–18, Do bis 20, Sa 8–15</span></a>
+          <a href="#" target="_blank" rel="noopener"><small>Bruchquartier</small><b>Bruchstrasse 30</b><span>6003 Luzern · Di–Fr 9–18, Do bis 20, Sa 8–15</span></a>
         </div>
         <div class="hero-cta" style="margin-top:18px"><a class="btn btn-ink" href="tel:+41410000000">041 000 00 00</a><a class="btn btn-ghost" href="#" target="_blank" rel="noopener">Instagram</a><a class="btn btn-ghost" href="#" target="_blank" rel="noopener">TikTok</a></div>
       </div>
-      <div class="fin-photo"><img loading="lazy" src="img/buehne_hoch.webp" alt="Empfang im Salon Altstadt mit Get-Nailed-Schild"></div>
+      <div class="fin-photo"><img loading="lazy" src="img/buehne_hoch.webp" alt="Empfang im Studio Altstadt"></div>
     </div>
   </div>
   <footer class="foot">
@@ -904,21 +1001,21 @@ setTimeout(()=>$$('.reveal').forEach(el=>{const r=el.getBoundingClientRect();if(
 
 /* ---------- Salons ---------- */
 const DAYS=['So','Mo','Di','Mi','Do','Fr','Sa'],DAYS_EN=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-const WK={0:null,1:[9,19],2:[9,19],3:[9,19],4:[9,19],5:[9,19],6:[9,16]};
+const WK={0:null,1:null,2:[9,18],3:[9,18],4:[9,20],5:[9,18],6:[8,15]};
 const SAL={
- seefeld:{name:'VERNIS Altstadt',addr:'Theaterstrasse 7, 6003 Luzern',short:'Theaterstrasse 7',
-   chips:{de:['Am Theater','Bus Theaterplatz','Nails · Lashes · Brows','Hair & Make-up','EN · DE · ES · RO · PT · RU'],en:['By the theatre','Bus Theaterplatz','Nails · Lashes · Brows','Hair & make-up','EN · DE · ES · RO · PT · RU']},
+ altstadt:{name:'VERNIS Altstadt',addr:'Theaterstrasse 7, 6003 Luzern',short:'Theaterstrasse 7',
+   chips:{de:['Am Theater','Bus Theaterplatz','Nails · Lashes · Brows','Wimpern & Brauen','DE · IT · EN'],en:['By the theatre','Bus Theaterplatz','Nails · Lashes · Brows','Lashes & brows','DE · IT · EN']},
    book:'#',
    map:'#',hours:WK},
- schaffhauserplatz:{name:'VERNIS Bruchquartier',addr:'Bruchstrasse 30, 6003 Luzern',short:'Bruchstr. 30',
-   chips:{de:['Gratis-Parkplatz Nr. 2 und 3','Bus Bruchstrasse','Nails · Pedicure · Lashes','Academy im Haus','EN · DE · ES'],en:['Free parking no. 2 and 3','Bus Bruchstrasse','Nails · Pedicure · Lashes','Academy on site','EN · DE · ES']},
+ bruch:{name:'VERNIS Bruchquartier',addr:'Bruchstrasse 30, 6003 Luzern',short:'Bruchstr. 30',
+   chips:{de:['Velo-Ständer vor dem Haus','Bus Bruchstrasse','Nails · Pedicure · Lashes','Kurse im Obergeschoss','DE · EN · FR'],en:['Bike rack outside','Bus Bruchstrasse','Nails · Pedicure · Lashes','Courses upstairs','DE · EN · FR']},
    book:'#',
    map:'#',hours:WK},
  zuhause:{name:'VERNIS Hausbesuch',name_en:'VERNIS House call',addr:'In Luzern und Umgebung – nach Absprache',addr_en:'Lucerne and surroundings – by arrangement',short:'Hausbesuch',
-   chips:{de:['Unser Team kommt zu Ihnen','Hochzeiten','TV- & Foto-Shootings','Termin per Telefon'],en:['Our team comes to you','Weddings','TV & photo shoots','Book by phone']},
+   chips:{de:['Unser Team kommt zu Ihnen','Brautstyling','Foto-Shootings','Termin per Telefon'],en:['Our team comes to you','Bridal styling','Photo shoots','Book by phone']},
    book:'tel:+41410000000',map:null,hours:WK}
 };
-let lang='de',cur='seefeld',selDay=new Date().getDay();
+let lang='de',cur='altstadt',selDay=new Date().getDay();
 const tt=(de,en)=>lang==='en'?en:de;
 function stat(s){const n=new Date(),h=SAL[s].hours[n.getDay()],t=n.getHours()+n.getMinutes()/60;
   if(h&&t>=h[0]&&t<h[1])return {open:true,txt:tt('Heute geöffnet bis '+h[1]+':00','Open today until '+(h[1]-12)+' pm')};
@@ -937,7 +1034,7 @@ function renderSalon(){const s=SAL[cur];
   renderDays();renderTicket()}
 $$('.stagecard').forEach(c=>c.addEventListener('click',()=>{if(cur===c.dataset.s)return;cur=c.dataset.s;const si=$('#salonInfo');si.classList.remove('wiping');void si.offsetWidth;si.classList.add('wiping');$$('.stagecard').forEach(x=>x.classList.toggle('on',x===c));setTimeout(renderSalon,380);setTimeout(()=>si.classList.remove('wiping'),850)}));
 /* Ticket im Hero */
-function renderTicket(){const t=$('#ticket');if(!t)return;const s=SAL[cur==='zuhause'?'seefeld':cur];const k=cur==='zuhause'?'seefeld':cur;
+function renderTicket(){const t=$('#ticket');if(!t)return;const s=SAL[cur==='zuhause'?'altstadt':cur];const k=cur==='zuhause'?'altstadt':cur;
   $$('#ticket .tsal button').forEach(b=>b.classList.toggle('on',b.dataset.s===k));
   $('#tAddr').textContent=s.addr;const st=stat(k);$('#tStat').innerHTML='<i class="'+(st.open?'':'zu')+'"></i>'+st.txt;$('#tBook').href=s.book}
 $$('#ticket .tsal button').forEach(b=>b.addEventListener('click',()=>{cur=b.dataset.s;renderSalon()}));
@@ -1022,18 +1119,43 @@ addEventListener('pointerdown',e=>{if(!hero.classList.contains('live')||e.button
 if(H.classList.contains('sv')){(()=>{const stg=$('#aktStage');if(!stg)return;const L=stg.querySelector('.vh.l'),R=stg.querySelector('.vh.r');
   const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;let cur=rm?1:0,tgt=cur,force=null,raf=0;
   const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
-  function target(){const r=stg.getBoundingClientRect(),vh=innerHeight;const a=vh*.88,b=vh/2-r.height/2;const p=(a-r.top)/Math.max(1,a-Math.max(b,-r.height));return Math.max(0,Math.min(1,p))}
-  function draw(){const e=ease(cur);const sway=Math.sin(cur*Math.PI);
-    const tx=e*101,sx=1-.38*e,sk=sway*1.6;
-    L.style.transform=`translate3d(${-tx}%,0,0) scaleX(${sx}) skewY(${sk*.35}deg)`;
-    R.style.transform=`translate3d(${tx}%,0,0) scaleX(${sx}) skewY(${-sk*.35}deg)`;
-    L.style.setProperty('--fold',(e*.9).toFixed(3));R.style.setProperty('--fold',(e*.9).toFixed(3))}
-  function tick(){raf=0;tgt=force!==null?force:(rm?1:target());const k=force!==null?.22:.1;const d=tgt-cur;cur=Math.abs(d)<.0008?tgt:cur+d*k;draw();if(cur!==tgt)raf=requestAnimationFrame(tick)}
+  function target(){const r=stg.getBoundingClientRect(),vh=innerHeight;const a=vh*.78,b=vh/2-r.height/2;const p=(a-r.top)/Math.max(1,a-Math.max(b,-r.height));return Math.max(0,Math.min(1,p))}
+  /* Raffvorhang: Bahnen bauen */
+  let N=0,W=0,Hh=0,bw=0;const P=[L,R];
+  function build(){const r=stg.getBoundingClientRect();W=L.getBoundingClientRect().width||r.width*.51;Hh=r.height;N=innerWidth<700?11:16;bw=W/N;
+    P.forEach(pn=>{pn.innerHTML='';for(let i=0;i<N;i++){const d=document.createElement('span');d.className='st';d.style.width=(bw+1.5)+'px';d.style.left=(i*bw)+'px';
+      d.style.backgroundSize='auto '+Hh+'px';d.style.backgroundPosition=(-i*bw)+'px 0';pn.appendChild(d)}
+      const c=document.createElement('span');c.className='cord';c.innerHTML='<i></i>';pn.appendChild(c)})}
+  const lift=(u,e)=>e*(.10+.86*Math.pow(u,1.35));          /* Anteil der Höhe, um den der Saum angehoben ist */
+  function draw(){if(!N)build();const G=.045;              /* gerafft bleiben 17 % der Bahnbreite am Rand */
+    P.forEach(pn=>{const st=pn.children;let x=0;
+      const EE=[];for(let i=0;i<N;i++){const u=i/(N-1),dl=.26*(1-u);const q=Math.max(0,Math.min(1,(cur-dl)/(1-dl)));EE.push(q<.5?4*q*q*q:1-Math.pow(-2*q+2,3)/2)}
+      for(let i=0;i<N;i++){const e=EE[i];
+        const sc=1-(1-G)*e, w=bw*sc;
+        const lu=(i-.5)/(N-1),ru=(i+.5)/(N-1);
+        const eL=i?(EE[i-1]+e)/2:e,eR=i<N-1?(EE[i+1]+e)/2:e;const yl=100*(1-lift(Math.max(0,lu),eL)),yr=100*(1-lift(Math.min(1,ru),eR));
+        const wave=0;
+        const d=st[i];d.style.transform=`translate3d(${x.toFixed(2)}px,${wave.toFixed(2)}px,0) scaleX(${sc.toFixed(4)})`;
+        d.style.left='0px';d.style.clipPath=`polygon(0 0,100% 0,100% ${yr.toFixed(2)}%,0 ${yl.toFixed(2)}%)`;
+        d.style.setProperty('--s',(Math.min(1,e*1.25)).toFixed(3));x+=w}
+      const c=st[N];const eo=Math.max(0,Math.min(1,(cur-.45)/.4));const cy=Hh*.56;
+      c.style.opacity=eo.toFixed(3);c.style.top=cy+'px';c.style.width=(W*G*1.05)+'px';c.style.transform=`scaleX(${(.3+.7*eo).toFixed(3)})`})}
+  addEventListener('resize',()=>{N=0;draw()});
+  function tick(){raf=0;tgt=force!==null?force:(rm?1:target());const k=force!==null?.2:.075;const d=tgt-cur;const st=Math.max(-.022,Math.min(.022,d*k));cur=Math.abs(d)<.0008?tgt:cur+(force!==null?d*k:st);draw();if(cur!==tgt)raf=requestAnimationFrame(tick)}
   const kick=()=>{if(!raf)raf=requestAnimationFrame(tick)};
   addEventListener('scroll',kick,{passive:true});addEventListener('resize',kick);draw();kick();
   /* Aktwechsel: kurz zu, dann wieder offen – weich, ohne Klassen-Sprung */
   window.__svAkt=fn=>{force=0;kick();setTimeout(()=>{fn();force=null;kick()},430)};
 })()}
+
+
+/* ===== 24.11 Logen: Zähler + Reels laufen auf Touch-Geräten beim Erscheinen ===== */
+(()=>{const lg=$('#logen');if(!lg)return;const z=$('#lgZahl'),N=+z.dataset.n;const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fmt=n=>String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,' ');
+  new IntersectionObserver((es,o)=>es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();
+    if(matchMedia('(hover: none)').matches)lg.classList.add('play');
+    if(rm){z.textContent=fmt(N);return}const t0=performance.now(),D=1600;
+    const st=t=>{const k=Math.min(1,(t-t0)/D),e2=1-Math.pow(1-k,3);z.textContent=fmt(N*e2);if(k<1)requestAnimationFrame(st)};requestAnimationFrame(st)}),{threshold:.35}).observe(lg)})();
 
 
 /* ===== Die Anprobe ===== */
@@ -1072,6 +1194,16 @@ const ch=$('#wandChip');if(ch)ch.addEventListener('click',()=>{const v=getComput
 window.__konfLang=()=>render();
 render();
 })();
+
+
+/* ===== 24.11 Bookbar nicht über dem Preis ===== */
+(()=>{const r=document.querySelector('#atelier .result'),bb=$('#bookbar');if(!r||!bb)return;
+  new IntersectionObserver(es=>es.forEach(e=>bb.classList.toggle('konf-off',e.isIntersecting)),{threshold:0,rootMargin:'0px 0px 80px 0px'}).observe(r)})();
+
+
+/* ===== 24.11 Mini-Hand nicht über dem Preis ===== */
+(()=>{const r=document.querySelector('#atelier .result'),m=$('#mini');if(!r||!m)return;
+  new IntersectionObserver(es=>es.forEach(e=>m.classList.toggle('off',e.isIntersecting)),{threshold:0,rootMargin:'0px 0px -60px 0px'}).observe(r)})();
 
 })();
 </script>
