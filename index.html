@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de" translate="no">
+<html lang="de" translate="no" class="sv">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -320,7 +320,7 @@ html.nb-off .top{top:0}
 #atelier .ctrl h3{color:var(--tinte-2);font-weight:400;letter-spacing:.22em}
 #atelier .fin-cur{color:var(--lack)}
 #atelier .fin-hint{color:var(--gold)}
-#atelier.sec{padding:clamp(56px,7svh,90px) 0}
+#atelier.sec{padding:54px 0}
 @media (min-width:901px){#atelier .sec-head{flex-wrap:nowrap;align-items:flex-end}#atelier .sec-head h2.t{font-size:clamp(32px,3.3vw,50px)}#atelier .sec-head .lead{max-width:44ch;font-size:15px}#atelier .stage{width:min(100%,(100svh - 250px)*.8)}#atelier .ctrl{margin-bottom:6px}#atelier .ctrl h3{margin-bottom:6px}#atelier .seg:not(.cols) button{padding:8px 14px}#atelier .result{margin-top:10px;padding:16px 22px}#atelier .sec-head{margin-bottom:14px}}
 @media (min-width:901px) and (max-height:780px){#atelier.sec{padding-top:40px}#atelier .sec-head .kicker{display:none}#atelier .sec-head h2.t{font-size:34px}#atelier .seg:not(.cols) button{padding:6px 12px;font-size:13.5px}#atelier .ctrl h3{font-size:11.5px;margin-bottom:4px}#atelier .ctrl{margin-bottom:4px}#atelier .tone{height:32px}}
 @media (hover:hover){.set-live .result:hover{border-color:var(--gold-2);box-shadow:0 0 0 6px rgba(241,223,182,.45)}}
@@ -554,6 +554,21 @@ html.nb-off .top{top:0}
 @media (hover:hover){.wandchip:hover{border-color:var(--gold-2);box-shadow:0 0 0 5px rgba(241,223,182,.45)}}
 @media (prefers-reduced-motion:reduce){.drips .dr,.drips .band{transform:none!important}}
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01s!important;animation-duration:.01s!important}}
+
+/* 24.11 Abstände (Julia: «нормальным»): ≤120 px Computer, ≤90 px Telefon */
+.sec,.finale{padding-top:54px!important;padding-bottom:54px!important}
+.finale{padding-bottom:0!important}
+#salons{padding-top:clamp(70px,6vw,86px)!important}
+.drips{height:clamp(46px,4.6vw,66px)}
+.hero.b{padding-bottom:156px}
+@media (max-width:900px){.sec,.finale{padding-top:40px!important;padding-bottom:40px!important}.finale{padding-bottom:0!important}#salons{padding-top:56px!important}.hero.b{padding-bottom:30px}.foot{margin-top:36px}}
+
+/* Vorhang beim Scrollen (html.sv) */
+html.sv .akt-stage .vh{transition:none;will-change:transform;backface-visibility:hidden}
+html.sv .akt-stage .vh.l{transform-origin:left center}
+html.sv .akt-stage .vh.r{transform-origin:right center}
+html.sv .akt-stage .vh:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:var(--fold,0);
+  background:repeating-linear-gradient(90deg,rgba(0,0,0,.38) 0 3px,rgba(0,0,0,0) 9px,rgba(255,220,200,.07) 14px,rgba(0,0,0,0) 20px)}
 </style>
 </head>
 <body>
@@ -1004,6 +1019,7 @@ const bb=$('#bookbar');new IntersectionObserver(es=>es.forEach(e=>bb.classList.t
 /* ---------- Programm ---------- */
 {const RN=['','I','II','III','IV','Zugabe'],stg=$('#aktStage');let busy=0;
 $$('.akte button').forEach(b=>b.addEventListener('click',()=>{if(b.classList.contains('on')||busy)return;busy=1;$$('.akte button').forEach(x=>x.classList.toggle('on',x===b));
+  if(window.__svAkt){window.__svAkt(()=>{$$('.akt').forEach(a=>a.classList.toggle('on',a.dataset.a===b.dataset.a));$('#aktNo').textContent=RN[+b.dataset.a]});setTimeout(()=>{busy=0},900);return}
   stg.style.minHeight=stg.offsetHeight+'px';stg.classList.remove('auf');stg.classList.add('zu');
   setTimeout(()=>{$$('.akt').forEach(a=>a.classList.toggle('on',a.dataset.a===b.dataset.a));$('#aktNo').textContent=RN[+b.dataset.a];stg.style.minHeight='';stg.classList.add('auf');stg.classList.remove('zu');setTimeout(()=>{busy=0;stg.classList.remove('auf')},620)},420)}))}
 
@@ -1070,6 +1086,24 @@ addEventListener('pointerdown',e=>{if(!hero.classList.contains('live')||e.button
 {const st=$('#strip');if(st){const up=()=>{const max=st.scrollWidth-st.clientWidth||1;st.parentNode.style.setProperty('--rp',(st.scrollLeft/max*100)+'%');
   if(matchMedia('(max-width:700px)').matches){const c=st.getBoundingClientRect();let best=null,bd=1e9;$$('#strip figure').forEach(f=>{const r=f.getBoundingClientRect();const d=Math.abs(r.left+r.width/2-(c.left+c.width/2));f.classList.remove('f');if(d<bd){bd=d;best=f}});best&&best.classList.add('f')}};
   st.addEventListener('scroll',up,{passive:true});addEventListener('resize',up);setTimeout(up,50)}}
+
+
+/* ===== Vorhang beim Scrollen (html.sv) ===== */
+if(H.classList.contains('sv')){(()=>{const stg=$('#aktStage');if(!stg)return;const L=stg.querySelector('.vh.l'),R=stg.querySelector('.vh.r');
+  const rm=matchMedia('(prefers-reduced-motion: reduce)').matches;let cur=rm?1:0,tgt=cur,force=null,raf=0;
+  const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+  function target(){const r=stg.getBoundingClientRect(),vh=innerHeight;const a=vh*.88,b=vh/2-r.height/2;const p=(a-r.top)/Math.max(1,a-Math.max(b,-r.height));return Math.max(0,Math.min(1,p))}
+  function draw(){const e=ease(cur);const sway=Math.sin(cur*Math.PI);
+    const tx=e*101,sx=1-.38*e,sk=sway*1.6;
+    L.style.transform=`translate3d(${-tx}%,0,0) scaleX(${sx}) skewY(${sk*.35}deg)`;
+    R.style.transform=`translate3d(${tx}%,0,0) scaleX(${sx}) skewY(${-sk*.35}deg)`;
+    L.style.setProperty('--fold',(e*.9).toFixed(3));R.style.setProperty('--fold',(e*.9).toFixed(3))}
+  function tick(){raf=0;tgt=force!==null?force:(rm?1:target());const k=force!==null?.22:.1;const d=tgt-cur;cur=Math.abs(d)<.0008?tgt:cur+d*k;draw();if(cur!==tgt)raf=requestAnimationFrame(tick)}
+  const kick=()=>{if(!raf)raf=requestAnimationFrame(tick)};
+  addEventListener('scroll',kick,{passive:true});addEventListener('resize',kick);draw();kick();
+  /* Aktwechsel: kurz zu, dann wieder offen – weich, ohne Klassen-Sprung */
+  window.__svAkt=fn=>{force=0;kick();setTimeout(()=>{fn();force=null;kick()},430)};
+})()}
 
 /* ---------- Atelier ---------- */
 /* Preise fiktiv */
