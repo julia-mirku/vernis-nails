@@ -698,6 +698,7 @@ header.top .nav a:after{background:var(--perl)}
 .vx-strip img{-webkit-mask:none!important;mask:none!important;height:100%!important;object-fit:cover;object-position:72% 30%}
 .vx-shade{background:linear-gradient(180deg,rgba(10,30,29,.55) 0,rgba(10,30,29,0) 140px),linear-gradient(90deg,rgba(10,30,29,.86) 0,rgba(10,30,29,.62) 30%,rgba(10,30,29,.15) 52%,rgba(10,30,29,0) 64%),linear-gradient(180deg,rgba(10,30,29,0) 70%,rgba(10,30,29,.35) 100%)!important}
 @media (min-width:1001px){.vx-text{grid-template-columns:minmax(0,600px) 1fr;align-content:end}.vx-text h1{font-size:clamp(42px,4.6vw,78px)!important}.vx-text .vx-l,.vx-text .vx-r{grid-column:1}.vx-text .vx-r{margin-top:-8px}}
+.stagecard:before{background:linear-gradient(180deg,rgba(15,43,42,.12) 8%,rgba(15,43,42,.55) 42%,rgba(15,43,42,.93) 100%)!important}
 @media (max-width:1000px){.vx-strip .vx-m{object-position:50% 20%!important}
   .vx-shade{background:linear-gradient(180deg,rgba(10,30,29,.6) 0,rgba(10,30,29,0) 120px),linear-gradient(180deg,rgba(10,30,29,0) 58%,var(--samt) 100%)!important}}
 </style>
@@ -759,21 +760,21 @@ header.top .nav a:after{background:var(--perl)}
     </div>
     <div class="stages reveal" role="tablist" aria-label="Salon wählen">
       <button class="stagecard on" data-s="altstadt" role="tab" aria-selected="true">
-        <img loading="lazy" src="img/v_studio_1.webp" alt="Atelier Altstadt: Samtsessel, Marmortisch, Goldleuchte">
+        <img loading="lazy" src="img/v_wartebereich.webp" alt="Wartebereich: Samtsofa, Marmortisch, zwei Tassen Kaffee">
         <span class="sel" data-en="Selected">Gewählt</span>
         <span class="no" data-en="I · The original · since 2014">I · Das Original · seit 2014</span>
         <h3>Altstadt <em style="font-style:italic;color:var(--gold-2)">an der Marktgasse</em></h3>
         <p data-en="Our first atelier, right in the Old Town. Lashes and brows are here too.">Unser erstes Atelier, mitten in der Altstadt. Hier gibt es auch Wimpern und Brauen.</p>
       </button>
       <button class="stagecard" data-s="bruch" role="tab" aria-selected="false">
-        <img loading="lazy" src="img/lackwand_hoch.webp" alt="Salon Neuwiesen mit Rattan-Leuchten">
+        <img loading="lazy" src="img/v_lackwand.webp" alt="Lackwand nach Farben, Samtsofa">
         <span class="sel" data-en="Choose">Wählen</span>
         <span class="no" data-en="II · Full of daylight">II · Mit viel Tageslicht</span>
         <h3>Neuwiesen</h3>
         <p data-en="Big windows, quiet music – and the bus stop is just around the corner.">Grosse Fenster, leise Musik – und die Bushaltestelle liegt gleich um die Ecke.</p>
       </button>
       <button class="stagecard" data-s="zuhause" role="tab" aria-selected="false">
-        <img loading="lazy" src="img/v_kaffee.webp" alt="Gepflegte Hand mit Kaffeetasse, kurze natürliche Nägel">
+        <img loading="lazy" src="img/v_tablett.webp" alt="Goldene Instrumente auf dem Tablett, Tücher, Kerze">
         <span class="sel" data-en="Choose">Wählen</span>
         <span class="no" data-en="III · Mobile">III · Mobil</span>
         <h3 data-en="On the road">Unterwegs <em style="font-style:italic;color:var(--gold-2)">zu Ihnen</em></h3>
@@ -934,8 +935,10 @@ header.top .nav a:after{background:var(--perl)}
       <button class="arr l" aria-label="Zurück"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
       <div class="strip" id="strip">
         <figure><img loading="lazy" src="img/v_french.webp" alt="French auf Mandelform, dunkle Haut, Seidentuch"><figcaption>French · Mandel</figcaption></figure>
-        <figure><img loading="lazy" src="img/v_flakon.webp" alt="Kirschroter Lack, eckige Form, Flakon mit Goldkappe"><figcaption>Kirschrot</figcaption></figure>
-        <figure><img loading="lazy" src="img/v_chrome.webp" alt="Perlmutt-Chrome auf zwei Händen, Marmor"><figcaption>Perlmutt-Chrome</figcaption></figure>
+        <figure><img loading="lazy" src="img/v_lacke_marmor.webp" alt="Fünf Lacke mit Goldkappen auf Marmor"><figcaption>Unsere Lacke</figcaption></figure>
+        <figure><img loading="lazy" src="img/v_flakon.webp" alt="Kirschroter Lack, eckige Form, Flakon mit Goldkappe"><figcaption>Kirschrot · eckig</figcaption></figure>
+        <figure><img loading="lazy" src="img/v_flasche_samt.webp" alt="Bordeaux-Flakon auf Samt mit Rosenblättern"><figcaption>Bordeaux</figcaption></figure>
+        <figure><img loading="lazy" src="img/v_tropfen.webp" alt="Tropfen Kirschlack mit Goldschimmer"><figcaption>Gold-Schimmer</figcaption></figure>
       </div>
       <button class="arr r" aria-label="Weiter"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
       <div class="dots" id="dots"></div>
@@ -975,7 +978,7 @@ header.top .nav a:after{background:var(--perl)}
     </div>
     <div class="ac-grid reveal">
       <div>
-        <div class="ac-photo"><img loading="lazy" src="img/hand_19.webp" alt="Nude-Set aus der Academy"><span class="script">Handwerk</span></div>
+        <div class="ac-photo"><img loading="lazy" src="img/v_studio_1.webp" alt="Arbeitsplatz in der Academy: Marmortisch, Goldleuchte"><span class="script">Handwerk</span></div>
       </div>
       <div>
         <div class="passes">
@@ -1006,7 +1009,7 @@ header.top .nav a:after{background:var(--perl)}
         </div>
         <div class="hero-cta" style="margin-top:18px"><a class="btn btn-ink" href="tel:+41520000000">052 000 00 00</a><a class="btn btn-ghost" href="#" target="_blank" rel="noopener">Instagram</a><a class="btn btn-ghost" href="#" target="_blank" rel="noopener">TikTok</a></div>
       </div>
-      <div class="fin-photo"><img loading="lazy" src="img/v_spiegel.webp" alt="Zwei Hände auf Samt vor dem Goldspiegel"></div>
+      <div class="fin-photo"><img loading="lazy" src="img/v_schaufenster.webp" alt="Schaufenster VERNIS am Abend"></div>
     </div>
   </div>
   <footer class="foot">
