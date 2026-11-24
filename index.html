@@ -9,7 +9,7 @@
 <meta name="description" content="Musterseite mit fiktiven Angaben: VERNIS Nail Studio, Luzern.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prata&family=Tenor+Sans&family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/hand_07.webp">
+<link rel="preload" as="image" href="img/hand_13.webp">
 <style>
 :root{
   --samt:#0F2B2A; --samt-2:#173D3B; --lack:#16524D; --lack-2:#1F6E67;
@@ -611,6 +611,9 @@ html.sv .akt-stage .vh .cord i{position:absolute;right:-7px;top:-4px;width:12px;
 header.top.scrolled{background:var(--samt)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 header.top{z-index:90!important}
 
+/* ---------- 24.11 №104 untere Leiste deckend ---------- */
+@media (max-width:700px){.bookbar{background:var(--samt)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}}
+
 /* ---------- VERNIS eigene Optik (24.11 №103/№104) ---------- */
 :root{--perl:#F4EEE6;--perl-2:#E4DAD0}
 /* Kopf: Petrol, Schrift Perlmutt statt Gold */
@@ -648,6 +651,34 @@ header.top .nav a:after{background:var(--perl)}
   .pk-tabs::-webkit-scrollbar{display:none}
   .pk-tabs button{flex:none;font-size:17px}
 }
+
+/* ---------- VERNIS Lack-Atelier: erster Bildschirm (24.11 №103) ---------- */
+.hero.vx{position:relative;min-height:100svh;padding:0;background:var(--samt);color:var(--perl);overflow:hidden}
+.hero.vx:after{display:none}
+.vx-strip{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--samt)}
+.vx-strip figure{margin:0;position:relative;overflow:hidden}
+.vx-strip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;transform:scale(1.04);transition:transform 6s cubic-bezier(.2,.6,.2,1)}
+.hero.vx.open .vx-strip img{transform:none}
+.vx-shade{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,30,29,.62) 0,rgba(10,30,29,0) 150px),linear-gradient(180deg,rgba(10,30,29,0) 38%,rgba(10,30,29,.6) 64%,rgba(10,30,29,.94) 100%)}
+.vx-text{position:relative;z-index:3;min-height:100svh;width:min(1360px,92vw);margin:0 auto;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:28px 64px;align-items:end;padding:calc(var(--hdr) + 20px) 0 clamp(30px,6vh,64px)}
+.vx-text .kicker{color:var(--perl);opacity:.85;display:block;margin-bottom:16px}
+.vx-text h1{font-family:"Prata";font-weight:400;font-size:clamp(42px,5.4vw,90px);line-height:1;letter-spacing:-.015em;color:var(--perl)}
+.vx-text h1 em{font-style:italic;color:#BFE0DA}
+.vx-text .sub{font-size:clamp(15px,1.15vw,17px);line-height:1.6;color:rgba(244,238,230,.9);max-width:44ch;margin-bottom:20px}
+.vx-text .hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+@media (min-width:901px) and (max-height:700px){.vx-text h1{font-size:clamp(40px,4.6vw,70px)}.vx-text .kicker{margin-bottom:10px}.vx-text .sub{margin-bottom:14px}}
+@media (max-width:1000px) and (min-width:701px){.vx-strip{grid-template-columns:repeat(2,1fr)}.vx-strip figure:first-child{display:none}.vx-text{grid-template-columns:1fr}}
+@media (max-width:700px){
+  .hero.vx{min-height:0}
+  .vx-strip{position:relative;height:62svh;grid-template-columns:1fr}
+  .vx-strip figure:not(:last-child){display:none}
+  .vx-strip img{object-position:50% 14%}
+  .vx-shade{height:62svh;bottom:auto;background:linear-gradient(180deg,rgba(10,30,29,.6) 0,rgba(10,30,29,0) 120px),linear-gradient(180deg,rgba(10,30,29,0) 60%,var(--samt) 100%)}
+  .vx-text{min-height:0;grid-template-columns:1fr;gap:6px;margin-top:-84px;padding:0 0 40px}
+  .vx-text h1{font-size:clamp(40px,11.5vw,52px)}
+  .vx-text .hero-cta .btn{flex:1 1 auto}
+}
 </style>
 </head>
 <body>
@@ -657,7 +688,7 @@ header.top .nav a:after{background:var(--perl)}
     <a class="mark" href="#hero" aria-label="VERNIS Luzern"><span>V<i>E</i>RNIS</span><small>LUZERN</small></a>
     <nav class="nav" aria-label="Hauptmenü">
       <a href="#salons" data-en="Salons">Salons</a>
-      <a href="#atelier" data-en="Set Studio">Set-Studio</a>
+      <a href="#atelier" data-en="Colour test">Farbprobe</a>
       <a href="#programm" data-en="Prices">Preise</a>
       <a href="#galerie" data-en="Gallery">Galerie</a>
       <a href="#academy">Academy</a>
@@ -670,7 +701,7 @@ header.top .nav a:after{background:var(--perl)}
 <div class="sheet" id="sheet" aria-hidden="true">
   <button class="x" id="sheetX" aria-label="Schliessen">×</button>
   <a href="#salons"><small>I</small><span data-en="Salons">Salons</span></a>
-  <a href="#atelier"><small>II</small><span data-en="Set Studio">Set-Studio</span></a>
+  <a href="#atelier"><small>II</small><span data-en="Colour test">Farbprobe</span></a>
   <a href="#programm"><small>III</small><span data-en="Prices">Preise</span></a>
   <a href="#galerie"><small>IV</small><span data-en="Gallery">Galerie</span></a>
   <a href="#academy"><small>V</small>Academy</a>
@@ -678,41 +709,28 @@ header.top .nav a:after{background:var(--perl)}
 </div>
 
 <main>
-<section class="hero b" id="hero">
-  <div class="bgwall" aria-hidden="true"><img src="img/lackwand.webp" alt=""></div>
-  <div class="spot" aria-hidden="true"></div>
-  <div class="lackstrich" aria-hidden="true"></div>
-  <div class="hero-grid">
-    <div>
-      <span class="kicker rise" data-en="Since 2014 · Altstadt &amp; Bruchquartier">Seit 2014 · Altstadt &amp; Bruchquartier</span>
-      <h1 class="rise d1">Nägel, die<br><em>auftreten.</em></h1>
-      <p class="sub rise d2" data-en="A stage for your hands: filed with care, painted precisely – and the set lasts three weeks and more.">Eine Bühne für Ihre Hände: in Ruhe gefeilt, präzise lackiert – und das Set hält drei Wochen und länger.</p>
-      <div class="hero-cta rise d3"><a class="btn btn-gold" href="#salons" data-en="Book now">Termin buchen</a><a class="btn btn-line" href="#atelier" data-en="Design your set">Set entwerfen</a></div>
-      <div class="facts rise d4"><div><b>5,0</b>Google · 600+</div><div><b>20</b><span data-en="years of experience">Jahre Erfahrung</span></div><div><b>2</b><span data-en="studios + courses">Studios + Kurse</span></div></div>
-    </div>
-    <div class="buehne rise d2">
-      <div class="portal"><img src="img/hand_13.webp" alt="Dunkler Lack, Studio VERNIS" fetchpriority="high"></div>
-      <div class="ticket" id="ticket">
-        <span class="tk" data-en="Your box">Ihre Loge</span>
-        <div class="tsal"><button data-s="altstadt" class="on">Altstadt</button><button data-s="bruch">Bruchquartier</button></div>
-        <div class="tad" id="tAddr">Theaterstrasse 7, 6003 Luzern</div>
-        <div class="tst" id="tStat"><i></i>Di–Fr 9–18, Do bis 20, Sa 8–15</div>
-        <hr>
-        <div class="trow"><a href="tel:+41410000000">041 000 00 00</a><a class="b" id="tBook" href="#" target="_blank" rel="noopener" data-en="Book now">Jetzt buchen</a></div>
-      </div>
-    </div>
+<section class="hero vx" id="hero">
+  <div class="vx-strip" aria-hidden="true">
+    <figure><img src="img/hand_11.webp" alt="" fetchpriority="high"></figure>
+    <figure><img src="img/hand_14.webp" alt="" fetchpriority="high"></figure>
+    <figure><img src="img/hand_13.webp" alt="" fetchpriority="high"></figure>
   </div>
-<div class="regal" id="regal">
-    <span class="regal-k"><span class="rk-d" data-en="The colour shelf — move across it, then tap a colour">Das Farbregal — mit der Maus darüber, dann Farbe antippen</span><span class="rk-m" data-en="The colour shelf · swipe and tap">Das Farbregal · wischen und antippen</span></span>
-    <div class="regal-in" id="regalIn"><img src="img/regal.webp" alt="Regal mit Nagellacken" draggable="false" width="2200" height="188"></div><span class="needle" aria-hidden="true"></span>
-    <div class="regal-tip" id="regalTip" aria-hidden="true"><i></i><b data-en="Tap to take">Klick = übernehmen</b></div>
+  <div class="vx-shade" aria-hidden="true"></div>
+  <div class="vx-text">
+    <div class="vx-l">
+      <span class="kicker rise" data-en="Polish atelier · Lucerne · since 2014">Lack-Atelier · Luzern · seit 2014</span>
+      <h1 class="rise d1" data-en="Colour, <em>set by hand.</em>">Farbe, <em>von Hand gesetzt.</em></h1>
+    </div>
+    <div class="vx-r">
+      <p class="sub rise d2" data-en="Filed, cared for, painted layer by layer – calmly and with a precise eye. Your set lasts three weeks and more.">Gefeilt, gepflegt, Schicht für Schicht lackiert – in Ruhe und mit genauem Blick. Ihr Set hält drei Wochen und länger.</p>
+      <div class="hero-cta rise d3"><a class="btn btn-gold" href="#salons" data-en="Book now">Termin buchen</a><a class="btn btn-line" href="#atelier" data-en="Try a colour">Farbe probieren</a></div>
+    </div>
   </div>
 </section>
 
 
 <!-- SPIELSTÄTTEN -->
 <section class="sec grain" id="salons">
-  <div class="drips" id="drips" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><defs><linearGradient id="lackG" x1="0" x2="1"><stop offset="0" style="stop-color:var(--pick)"/><stop offset=".42" style="stop-color:var(--pick-hi)"/><stop offset="1" style="stop-color:var(--pick)"/></linearGradient></defs><linearGradient id="lackV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--pick);stop-opacity:0"/><stop offset="1" style="stop-color:var(--pick);stop-opacity:.75"/></linearGradient><rect class="band" x="0" y="0" width="1440" height="5" style="fill:url(#lackV)"/><path class="dr" style="--d:0.24s" d="M-3.1,0 C3.5,10 4.5,11.2 4.5,19.4 A9.5,9.5 0 0 0 23.5,19.4 C23.5,11.2 24.5,10 31.1,0 Z"/><path class="dr" style="--d:0.32s" d="M48.1,0 C52.0,10 52.5,28.5 52.5,71.4 A5.5,5.5 0 0 0 63.5,71.4 C63.5,28.5 64.0,10 67.9,0 Z"/><path class="dr" style="--d:0.13s" d="M133.0,0 C136.5,10 137.0,19.9 137.0,47.1 A5.0,5.0 0 0 0 147.0,47.1 C147.0,19.9 147.5,10 151.0,0 Z"/><path class="dr" style="--d:0.04s" d="M171.2,0 C178.9,10 180.0,16.7 180.0,34.0 A11.0,11.0 0 0 0 202.0,34.0 C202.0,16.7 203.1,10 210.8,0 Z"/><path class="dr" style="--d:0.50s" d="M220.2,0 C227.9,10 229.0,9.1 229.0,13.2 A11.0,11.0 0 0 0 251.0,13.2 C251.0,9.1 252.1,10 259.8,0 Z"/><path class="dr" style="--d:0.38s" d="M278.6,0 C284.2,10 285.0,24.0 285.0,56.8 A8.0,8.0 0 0 0 301.0,56.8 C301.0,24.0 301.8,10 307.4,0 Z"/><path class="dr" style="--d:0.59s" d="M319.1,0 C326.4,10 327.5,9.1 327.5,13.6 A10.5,10.5 0 0 0 348.5,13.6 C348.5,9.1 349.6,10 356.9,0 Z"/><path class="dr" style="--d:0.25s" d="M369.3,0 C373.9,10 374.5,13.5 374.5,27.9 A6.5,6.5 0 0 0 387.5,27.9 C387.5,13.5 388.1,10 392.7,0 Z"/><path class="dr" style="--d:0.19s" d="M477.2,0 C481.4,10 482.0,19.9 482.0,46.4 A6.0,6.0 0 0 0 494.0,46.4 C494.0,19.9 494.6,10 498.8,0 Z"/><path class="dr" style="--d:0.34s" d="M538.2,0 C542.4,10 543.0,19.9 543.0,46.4 A6.0,6.0 0 0 0 555.0,46.4 C555.0,19.9 555.6,10 559.8,0 Z"/><path class="dr" style="--d:0.33s" d="M593.0,0 C600.0,10 601.0,9.1 601.0,13.9 A10.0,10.0 0 0 0 621.0,13.9 C621.0,9.1 622.0,10 629.0,0 Z"/><path class="dr" style="--d:0.12s" d="M648.0,0 C651.5,10 652.0,19.9 652.0,47.1 A5.0,5.0 0 0 0 662.0,47.1 C662.0,19.9 662.5,10 666.0,0 Z"/><path class="dr" style="--d:0.19s" d="M743.2,0 C750.9,10 752.0,28.5 752.0,67.8 A11.0,11.0 0 0 0 774.0,67.8 C774.0,28.5 775.1,10 782.8,0 Z"/><path class="dr" style="--d:0.18s" d="M854.3,0 C862.4,10 863.5,13.5 863.5,24.6 A11.5,11.5 0 0 0 886.5,24.6 C886.5,13.5 887.6,10 895.7,0 Z"/><path class="dr" style="--d:0.34s" d="M921.6,0 C927.2,10 928.0,9.1 928.0,15.2 A8.0,8.0 0 0 0 944.0,15.2 C944.0,9.1 944.8,10 950.4,0 Z"/><path class="dr" style="--d:0.44s" d="M1019.4,0 C1027.8,10 1029.0,13.5 1029.0,24.3 A12.0,12.0 0 0 0 1053.0,24.3 C1053.0,13.5 1054.2,10 1062.6,0 Z"/><path class="dr" style="--d:0.31s" d="M1105.1,0 C1109.0,10 1109.5,9.1 1109.5,16.8 A5.5,5.5 0 0 0 1120.5,16.8 C1120.5,9.1 1121.0,10 1124.9,0 Z"/><path class="dr" style="--d:0.56s" d="M1156.9,0 C1163.5,10 1164.5,11.2 1164.5,19.4 A9.5,9.5 0 0 0 1183.5,19.4 C1183.5,11.2 1184.5,10 1191.1,0 Z"/><path class="dr" style="--d:0.05s" d="M1256.0,0 C1259.5,10 1260.0,24.0 1260.0,58.8 A5.0,5.0 0 0 0 1270.0,58.8 C1270.0,24.0 1270.5,10 1274.0,0 Z"/><path class="dr" style="--d:0.42s" d="M1356.9,0 C1363.5,10 1364.5,13.5 1364.5,25.9 A9.5,9.5 0 0 0 1383.5,25.9 C1383.5,13.5 1384.5,10 1391.1,0 Z"/></svg></div>
   <div class="wrap">
     <div class="sec-head reveal">
       <div><span class="kicker" data-en="Two studios · one menu">Zwei Studios · eine Karte</span>
@@ -724,8 +742,8 @@ header.top .nav a:after{background:var(--perl)}
         <img loading="lazy" src="img/lackwand.webp" alt="Studio Altstadt mit Farbregal">
         <span class="sel" data-en="Selected">Gewählt</span>
         <span class="no" data-en="I · The original · since 2014">I · Das Original · seit 2014</span>
-        <h3>Altstadt <em style="font-style:italic;color:var(--gold-2)">am Theater</em></h3>
-        <p data-en="The first studio, right by the theatre. Lashes and brows are here too.">Das erste Studio, gleich beim Theater. Hier gibt es auch Wimpern und Brauen.</p>
+        <h3>Altstadt <em style="font-style:italic;color:var(--gold-2)">an der Kapellgasse</em></h3>
+        <p data-en="Our first atelier, right in the Old Town. Lashes and brows are here too.">Unser erstes Atelier, mitten in der Altstadt. Hier gibt es auch Wimpern und Brauen.</p>
       </button>
       <button class="stagecard" data-s="bruch" role="tab" aria-selected="false">
         <img loading="lazy" src="img/lackwand_hoch.webp" alt="Salon Bruchquartier mit Rattan-Leuchten">
@@ -745,7 +763,7 @@ header.top .nav a:after{background:var(--perl)}
     <div class="salon-info reveal" id="salonInfo"><span class="wipe" aria-hidden="true"></span>
       <div class="infocard" id="infoMain">
         <h4 id="siName">VERNIS Altstadt</h4>
-        <p class="addr" id="siAddr">Theaterstrasse 7, 6003 Luzern</p>
+        <p class="addr" id="siAddr">Kapellgasse 7, 6003 Luzern</p>
         <div class="chips" id="siChips"></div>
         <div class="acts" id="siActs"></div>
       </div>
@@ -762,8 +780,8 @@ header.top .nav a:after{background:var(--perl)}
 <section class="sec grain studio-set" id="atelier">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div><span class="kicker" data-en="Fitting room · try before you book">Garderobe · erst anprobieren, dann buchen</span>
-      <h2 class="t" data-en="The fitting room – <em>your set in three steps.</em>">Die Anprobe – <em>Ihr Set in drei Schritten.</em></h2></div>
+      <div><span class="kicker" data-en="Colour test · see it before you book">Farbprobe · erst ansehen, dann buchen</span>
+      <h2 class="t" data-en="The colour test – <em>your set in three steps.</em>">Die Farbprobe – <em>Ihr Set in drei Schritten.</em></h2></div>
       <p class="lead" data-en="Choose length, shape and colour – the photo shows your set and the price is right beside it. Just show it at your appointment.">Wählen Sie Länge, Form und Farbe – das Foto zeigt Ihr Set, der Preis steht gleich daneben. Zeigen Sie es einfach beim Termin.</p>
       <button class="wandchip" id="wandChip" hidden><i></i><span data-en="Take the colour from the shelf">Farbe vom Regal mitnehmen</span></button>
     </div>
@@ -804,8 +822,8 @@ header.top .nav a:after{background:var(--perl)}
           <h3 data-en="Manicure">Maniküre</h3><p class="sub" data-en="Dry manicure with fine burrs – neat cuticles, no soaking at all.">Trockene Maniküre mit feinen Fräsern – gepflegte Nagelhaut, ganz ohne Einweichen.</p>
           <div class="akt-cols">
           <div class="grp"><h5 data-en="With colour">Mit Farbe</h5>
-          <div class="prow"><span>Premiere-Maniküre mit Gellack</span><small>55 Min.</small><b>92.–</b></div>
-          <div class="prow"><span>Premiere-Maniküre, Abnahme inbegriffen</span><small>65 Min.</small><b>104.–</b></div>
+          <div class="prow"><span>Atelier-Maniküre mit Gellack</span><small>55 Min.</small><b>92.–</b></div>
+          <div class="prow"><span>Atelier-Maniküre, Abnahme inbegriffen</span><small>65 Min.</small><b>104.–</b></div>
           <div class="prow"><span>Grand-Maniküre mit Handpackung</span><small>80 Min.</small><b>128.–</b></div>
           <div class="prow"><span>Aufbau-Maniküre mit Gel-Overlay</span><small>100 Min.</small><b>158.–</b></div></div>
           <div class="grp"><h5 data-en="Care only">Pflege pur</h5>
@@ -890,7 +908,7 @@ header.top .nav a:after{background:var(--perl)}
   <div class="wrap">
     <div class="sec-head reveal">
       <div><span class="kicker">#vernisluzern · @vernis.studio</span>
-      <h2 class="t" data-en="Straight from <em>the dressing room.</em>">Direkt aus <em>der Garderobe.</em></h2></div>
+      <h2 class="t" data-en="Fresh from <em>the atelier.</em>">Frisch aus <em>dem Atelier.</em></h2></div>
     </div>
     <div class="strip-wrap reveal">
       <button class="arr l" aria-label="Zurück"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
@@ -915,16 +933,16 @@ header.top .nav a:after{background:var(--perl)}
 <section class="sec grain" id="kritiken">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div><span class="kicker" data-en="Voices">Stimmen</span>
-      <h2 class="t" data-en="Applause <em>from the stalls.</em>">Applaus <em>aus dem Parkett.</em></h2></div>
+      <div><span class="kicker" data-en="Feedback">Rückmeldungen</span>
+      <h2 class="t" data-en="What our clients <em>tell us.</em>">Was Kundinnen <em>uns sagen.</em></h2></div>
       <div class="score"><div><b>5,0</b><span data-en="average">im Schnitt</span></div><div><b>600+</b><span data-en="reviews">Bewertungen</span></div></div>
     </div>
     <div class="krit reveal">
       <figure class="kq big"><span class="st">★★★★★</span>
-        <blockquote>«Ich war vor einer Premiere hier und hatte die schönsten Nägel des Abends. Ruhig, präzise und mit einem Auge für Farbe.»</blockquote>
+        <blockquote>«Vor meiner Hochzeit war ich hier – die Farbe war genau richtig, ruhig und präzise aufgetragen.»</blockquote>
         <cite><b>Lena M.</b> · Stammkundin</cite></figure>
       <figure class="kq"><span class="st">★★★★★</span>
-        <blockquote>«Das Set-Studio auf der Website hat mir die Wahl leicht gemacht – im Studio war es genau so.»</blockquote>
+        <blockquote>«Die Farbprobe auf der Website hat mir die Wahl leicht gemacht – im Atelier sah es genau so aus.»</blockquote>
         <cite><b>Nina K.</b> · Stammkundin</cite></figure>
       <figure class="kq"><span class="st">★★★★★</span>
         <blockquote>«Perfect shape, flawless cuticles and they lasted four weeks.»</blockquote>
@@ -943,7 +961,7 @@ header.top .nav a:after{background:var(--perl)}
     </div>
     <div class="ac-grid reveal">
       <div>
-        <div class="ac-photo"><img loading="lazy" src="img/buehne.webp" alt="Workshop an der Academy"><span class="script">Backstage</span></div>
+        <div class="ac-photo"><img loading="lazy" src="img/hand_19.webp" alt="Nude-Set aus der Academy"><span class="script">Handwerk</span></div>
       </div>
       <div>
         <div class="passes">
@@ -966,15 +984,15 @@ header.top .nav a:after{background:var(--perl)}
   <div class="wrap">
     <div class="fin-grid reveal">
       <div>
-        <span class="kicker" data-en="Encore">Zugabe</span>
-        <p class="fin-big" style="margin-top:12px" data-en="See you <em>after the interval.</em>">Wir sehen uns <em>nach der Pause.</em></p>
+        <span class="kicker" data-en="Visit us">Besuch</span>
+        <p class="fin-big" style="margin-top:12px" data-en="See you soon <em>at the atelier.</em>">Bis bald <em>im Atelier.</em></p>
         <div class="fin-adr">
-          <a href="#" target="_blank" rel="noopener"><small>Altstadt</small><b>Theaterstrasse 7</b><span>6003 Luzern · Di–Fr 9–18, Do bis 20, Sa 8–15</span></a>
+          <a href="#" target="_blank" rel="noopener"><small>Altstadt</small><b>Kapellgasse 7</b><span>6003 Luzern · Di–Fr 9–18, Do bis 20, Sa 8–15</span></a>
           <a href="#" target="_blank" rel="noopener"><small>Bruchquartier</small><b>Bruchstrasse 30</b><span>6003 Luzern · Di–Fr 9–18, Do bis 20, Sa 8–15</span></a>
         </div>
         <div class="hero-cta" style="margin-top:18px"><a class="btn btn-ink" href="tel:+41410000000">041 000 00 00</a><a class="btn btn-ghost" href="#" target="_blank" rel="noopener">Instagram</a><a class="btn btn-ghost" href="#" target="_blank" rel="noopener">TikTok</a></div>
       </div>
-      <div class="fin-photo"><img loading="lazy" src="img/buehne_hoch.webp" alt="Empfang im Studio Altstadt"></div>
+      <div class="fin-photo"><img loading="lazy" src="img/hand_18.webp" alt="Nude mit Glanz, Atelier Altstadt"></div>
     </div>
   </div>
   <footer class="foot">
@@ -1018,8 +1036,8 @@ setTimeout(()=>$$('.reveal').forEach(el=>{const r=el.getBoundingClientRect();if(
 const DAYS=['So','Mo','Di','Mi','Do','Fr','Sa'],DAYS_EN=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const WK={0:null,1:null,2:[9,18],3:[9,18],4:[9,20],5:[9,18],6:[8,15]};
 const SAL={
- altstadt:{name:'VERNIS Altstadt',addr:'Theaterstrasse 7, 6003 Luzern',short:'Theaterstrasse 7',
-   chips:{de:['Am Theater','Bus Theaterplatz','Nails · Lashes · Brows','Wimpern & Brauen','DE · IT · EN'],en:['By the theatre','Bus Theaterplatz','Nails · Lashes · Brows','Lashes & brows','DE · IT · EN']},
+ altstadt:{name:'VERNIS Altstadt',addr:'Kapellgasse 7, 6003 Luzern',short:'Kapellgasse 7',
+   chips:{de:['Bei der Kapellbrücke','Bus Schwanenplatz','Nails · Lashes · Brows','Wimpern & Brauen','DE · IT · EN'],en:['By the Chapel Bridge','Bus Schwanenplatz','Nails · Lashes · Brows','Lashes & brows','DE · IT · EN']},
    book:'#',
    map:'#',hours:WK},
  bruch:{name:'VERNIS Bruchquartier',addr:'Bruchstrasse 30, 6003 Luzern',short:'Bruchstr. 30',
@@ -1044,7 +1062,7 @@ function renderSalon(){const s=SAL[cur];
   $$('.stagecard').forEach(c=>{const on=c.dataset.s===cur;c.classList.toggle('on',on);c.setAttribute('aria-selected',on);c.querySelector('.sel').textContent=on?tt('Gewählt','Selected'):tt('Wählen','Choose')});
   $('#siName').textContent=lang==='en'&&s.name_en?s.name_en:s.name;$('#siAddr').textContent=lang==='en'&&s.addr_en?s.addr_en:s.addr;
   $('#siChips').innerHTML=s.chips[lang].map(c=>'<span class="chip">'+c+'</span>').join('');
-  $('#siActs').innerHTML=(cur==='zuhause'?'<a class="btn btn-ink" href="tel:+41410000000">'+tt('Hausbesuch anfragen','Request a house call')+'</a>':'<a class="btn btn-ink" href="'+s.book+'" target="_blank" rel="noopener">'+tt('Termin in ','Book at ')+s.short.replace('Theaterstrasse 7','Altstadt').replace('Bruchstr. 30','Bruchquartier')+'</a>')+
+  $('#siActs').innerHTML=(cur==='zuhause'?'<a class="btn btn-ink" href="tel:+41410000000">'+tt('Hausbesuch anfragen','Request a house call')+'</a>':'<a class="btn btn-ink" href="'+s.book+'" target="_blank" rel="noopener">'+tt('Termin in ','Book at ')+s.short.replace('Kapellgasse 7','Altstadt').replace('Bruchstr. 30','Bruchquartier')+'</a>')+
     '<a class="btn btn-ghost" href="tel:+41410000000">041 000 00 00</a>'+(s.map?'<a class="btn btn-ghost" href="'+s.map+'" target="_blank" rel="noopener">'+tt('Route','Directions')+'</a>':'');
   renderDays();renderTicket()}
 $$('.stagecard').forEach(c=>c.addEventListener('click',()=>{if(cur===c.dataset.s)return;cur=c.dataset.s;const si=$('#salonInfo');si.classList.remove('wiping');void si.offsetWidth;si.classList.add('wiping');$$('.stagecard').forEach(x=>x.classList.toggle('on',x===c));setTimeout(renderSalon,380);setTimeout(()=>si.classList.remove('wiping'),850)}));
@@ -1057,7 +1075,7 @@ $$('#ticket .tsal button').forEach(b=>b.addEventListener('click',()=>{cur=b.data
 /* Telefon: Buchen-Leiste nach dem ersten Bildschirm */
 const bb=$('#bookbar');new IntersectionObserver(es=>es.forEach(e=>bb.classList.toggle('show',!e.isIntersecting)),{threshold:.05}).observe(hero);
 /* Galerie: Foto aus dem Hero nicht doppelt zeigen */
-{const hs=hero.querySelector('.portal img').getAttribute('src');$$('#strip figure').forEach(f=>{if(f.querySelector('img').getAttribute('src')===hs)f.parentNode.removeChild(f)})}
+{const hs=[...hero.querySelectorAll('.vx-strip img')].map(i=>i.getAttribute('src'));$$('#strip figure').forEach(f=>{if(hs.includes(f.querySelector('img').getAttribute('src')))f.parentNode.removeChild(f)})}
 /* ---------- Programm ---------- */
 /* ---------- Preisliste (VERNIS) ---------- */
 {$$('.pk-tabs button').forEach(b=>b.addEventListener('click',()=>{$$('.pk-tabs button').forEach(x=>{const on=x===b;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});
@@ -1079,7 +1097,7 @@ const DE=new Map();$$('[data-en]').forEach(el=>DE.set(el,el.innerHTML));
 function setLang(l){lang=l;H.lang=l;$$('.lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
   const y=scrollY;$$('[data-en]').forEach(el=>{el.innerHTML=l==='en'?el.dataset.en:DE.get(el)});renderSalon();window.__konfLang&&window.__konfLang(l);scrollTo(0,y)}
 $$('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.l)));
-{const h1=$('#hero h1');if(h1)h1.dataset.en='Nails that<br><em>take the stage.</em>';DE.set(h1,h1.innerHTML)}
+{const h1=$('#hero h1');if(h1)h1.dataset.en='Colour, <em>set by hand.</em>';DE.set(h1,h1.innerHTML)}
 if(/[?&]lang=en/.test(location.search))setLang('en');
 renderSalon();
 
@@ -1115,7 +1133,7 @@ function choose(hex,x,y){if(picked===hex)return;picked=hex;
   const ch=$('#wandChip');if(ch)ch.hidden=false;
 }
 /* 2 Tropfen: einmal beim Erscheinen */
-new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){$('#drips').classList.add('flow');o.disconnect()}}),{threshold:.2}).observe($('#drips'));
+/* Tropfen: bei VERNIS nicht vorhanden */
 /* Chip: Wandfarbe ins Set-Studio */
 {const ch=$('#wandChip');if(ch)ch.addEventListener('click',()=>{if(!picked)return;const c=hx(picked);let best=null,bd=1e9;
   $$('#segCol button').forEach(b=>{if(b.hidden||b.disabled)return;const m=(b.getAttribute('style')||'').match(/--c:#([0-9a-fA-F]{6})/);if(!m)return;const q=hx(m[1]);const dd=(q[0]-c[0])**2+(q[1]-c[1])**2+(q[2]-c[2])**2;if(dd<bd){bd=dd;best=b}});
