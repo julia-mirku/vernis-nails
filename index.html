@@ -206,77 +206,38 @@ html.nb-off .top{top:0}
 #atelier{background:linear-gradient(180deg,var(--papier-2) 0,var(--papier) 160px,var(--papier) calc(100% - 160px),var(--papier-2) 100%)}
 #atelier .sec-head{margin-bottom:20px}
 
-/* ===== Die Anprobe (VERNIS) ===== */
-@media (min-width:1001px){#atelier .sec-head{flex-wrap:nowrap;align-items:flex-end;margin-bottom:10px}#atelier .sec-head h2.t{font-size:clamp(32px,3.3vw,48px)}#atelier .sec-head .lead{max-width:44ch;font-size:15px}}
-.anprobe{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:clamp(22px,3vw,48px);align-items:center}
-.ap-k{display:block;font-family:"Tenor Sans";font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-.ap-block{margin-bottom:30px}
-.ap-left{justify-self:end;width:min(100%,260px)}
-.ap-right{justify-self:start;width:min(100%,280px)}
-/* Lineal */
-.ap-ruler{position:relative;display:flex;flex-direction:column;gap:6px;padding-left:28px}
-.ap-track{position:absolute;left:9px;top:10px;bottom:10px;width:2px;background:repeating-linear-gradient(180deg,var(--gold) 0 1px,transparent 1px 7px)}
-.ap-track i{position:absolute;left:-7px;width:16px;height:16px;border-radius:50%;background:var(--lack);box-shadow:0 0 0 4px rgba(22,82,77,.15);top:var(--y,0);transition:top .45s cubic-bezier(.3,1.4,.5,1)}
-.ap-stop{text-align:left;padding:7px 0;font-family:"Prata";font-size:20px;color:var(--tinte-2);transition:color .25s,transform .25s}
-.ap-stop.on{color:var(--tinte);transform:translateX(4px)}
-/* Kippschalter */
-.ap-toggle{position:relative;display:grid;grid-template-columns:1fr 1fr;width:220px;height:48px;border-radius:99px;background:rgba(255,255,255,.7);border:1px solid var(--linie);font-family:"Tenor Sans";letter-spacing:.12em;font-size:13px;text-transform:uppercase;overflow:hidden}
-.ap-toggle span{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;transition:color .3s}
-.ap-toggle i{position:absolute;z-index:1;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:99px;background:var(--lack);transition:transform .45s cubic-bezier(.3,1.3,.5,1)}
-.ap-toggle .t-a{color:var(--gold-3)}
-.ap-toggle[aria-checked="true"] i{transform:translateX(100%)}
-.ap-toggle[aria-checked="true"] .t-a{color:var(--tinte)}.ap-toggle[aria-checked="true"] .t-b{color:var(--gold-3)}
-/* Spiegel mit Lampen */
-.ap-mirror{position:relative;width:min(380px,max(300px,calc((100svh - 400px)*.8)),78vw);padding:20px;border-radius:30px;background:linear-gradient(160deg,#4a3326,#2a1c15);box-shadow:0 40px 80px -40px rgba(42,14,23,.7),inset 0 0 0 1px rgba(255,220,170,.25)}
-.ap-bulbs{position:absolute;inset:6px;border-radius:26px;pointer-events:none;
-  background:radial-gradient(circle,#fff3d6 0 3px,rgba(255,214,140,.55) 4px,transparent 9px) top left/40px 100% repeat-x,radial-gradient(circle,#fff3d6 0 3px,rgba(255,214,140,.55) 4px,transparent 9px) bottom left/40px 100% repeat-x;
-  -webkit-mask:linear-gradient(#000 0 16px,transparent 16px calc(100% - 16px),#000 calc(100% - 16px));mask:linear-gradient(#000 0 16px,transparent 16px calc(100% - 16px),#000 calc(100% - 16px));opacity:.9}
-.ap-mirror:before,.ap-mirror:after{content:"";position:absolute;top:30px;bottom:30px;width:16px;pointer-events:none;background:radial-gradient(circle,#fff3d6 0 3px,rgba(255,214,140,.55) 4px,transparent 9px) center top/100% 40px repeat-y}
-.ap-mirror:before{left:3px}.ap-mirror:after{right:3px}
-.ap-glass{position:relative;aspect-ratio:4/5;border-radius:16px;overflow:hidden;background:var(--papier-2)}
+/* ===== Die Anprobe (VERNIS, einfach) ===== */
+@media (min-width:1001px){#atelier .sec-head{flex-wrap:nowrap;align-items:flex-end;margin-bottom:14px}#atelier .sec-head h2.t{font-size:clamp(32px,3.3vw,48px)}#atelier .sec-head .lead{max-width:44ch;font-size:15px}}
+.anprobe{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:center;max-width:1040px;margin:0 auto}
+.ap-pic{margin:0;width:min(400px,max(280px,calc((100svh - 330px)*.8)))}
+.ap-glass{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:var(--papier-2);box-shadow:0 0 0 1px var(--gold-2),0 0 0 7px var(--papier),0 0 0 8px rgba(184,146,79,.5),0 30px 60px -34px rgba(20,40,38,.55)}
 .ap-glass img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s ease-out}
-.ap-glass:after{content:"";position:absolute;inset:0;background:linear-gradient(125deg,rgba(255,255,255,.16) 0 22%,transparent 23% 60%,rgba(255,255,255,.06) 61%);pointer-events:none}
-/* Lackfächer */
-.ap-fan{position:relative;height:146px;margin-top:-44px;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
-.ap-chip{position:absolute;left:50%;bottom:0;width:64px;height:132px;margin-left:-32px;border-radius:14px 14px 20px 20px;transform-origin:50% 230%;
-  transform:rotate(var(--a,0deg)) translateY(var(--ty,0));opacity:var(--o,1);transition:transform .5s cubic-bezier(.25,1,.4,1),opacity .4s;background:#fffaf4;box-shadow:0 10px 22px -10px rgba(42,14,23,.55);border:1px solid rgba(42,26,30,.12);z-index:var(--z,1)}
-.ap-chip i{position:absolute;left:7px;right:7px;top:7px;height:84px;border-radius:9px 9px 6px 6px;background:radial-gradient(circle at 30% 22%,rgba(255,255,255,.55) 0 7%,transparent 22%),var(--c);box-shadow:inset 0 -8px 12px rgba(0,0,0,.18)}
-.ap-chip b{position:absolute;left:0;right:0;bottom:10px;font:400 10.5px "Tenor Sans";letter-spacing:.08em;text-align:center;color:var(--tinte)}
-.ap-chip b{transition:opacity .3s}.ap-chip:not(.on) b{opacity:0}
-.ap-chip.on{box-shadow:0 0 0 2px var(--gold-2),0 18px 30px -12px rgba(42,14,23,.6)}
-.ap-hint{text-align:center;font-size:12.5px;color:var(--tinte-2);margin-top:34px}
-/* Lichtpult */
-.ap-pult{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.ap-bulb{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;border:1px solid var(--linie);background:rgba(255,255,255,.6);font-size:14px;transition:border-color .25s,background .25s}
-.ap-bulb i{width:16px;height:16px;border-radius:50%;background:#d9d2c8;box-shadow:inset 0 -2px 3px rgba(0,0,0,.2);transition:background .3s,box-shadow .3s}
-.ap-bulb.on{border-color:var(--gold-2);background:#fffaf1}
-.ap-bulb.on i{background:#ffe3a3;box-shadow:0 0 0 4px rgba(255,214,140,.35),0 0 16px 4px rgba(255,200,110,.75)}
-/* Ticket */
-.ap-ticket{position:relative;padding:20px 20px 18px;border-radius:18px;background:var(--samt);color:var(--papier);
-  -webkit-mask:radial-gradient(circle 9px at 0 58%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 9px at 100% 58%,#0000 98%,#000) right/51% 100% no-repeat;mask:radial-gradient(circle 9px at 0 58%,#0000 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 9px at 100% 58%,#0000 98%,#000) right/51% 100% no-repeat}
-.ap-ticket .ap-k{color:var(--gold-2)}
-.ap-ticket b{display:block;font-family:"Prata";font-weight:400;font-size:18px;line-height:1.3;min-height:2.6em}
-.ap-price{display:flex;align-items:baseline;gap:6px;margin-top:8px}.ap-price small{font-size:13px;color:rgba(246,238,230,.7)}
-.ap-price span{font-family:"Prata";font-size:44px;line-height:1;color:var(--gold-3)}
-.ap-ticket em{display:block;font-style:normal;font-size:13px;color:rgba(246,238,230,.7);margin:4px 0 14px}
-.ap-ticket .btn{width:100%}
-@media (hover:hover){.live .ap-stop:not(.on):hover{color:var(--lack)}.live .ap-bulb:not(.on):hover{border-color:var(--gold-2);background:#fff}.live .ap-chip:not(.on):hover{--ty:-8px}.live .ap-toggle:hover{border-color:var(--gold-2)}}
+.ap-pic figcaption{margin-top:16px;text-align:center;font:400 12px "Tenor Sans";letter-spacing:.22em;text-transform:uppercase;color:var(--tinte-2)}
+.ap-steps{display:flex;flex-direction:column;gap:22px;max-width:460px}
+.ap-step{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start;padding-bottom:20px;border-bottom:1px solid var(--linie)}
+.ap-n{width:34px;height:34px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font:400 16px "Prata";color:var(--lack)}
+.ap-k{display:inline-block;font-family:"Tenor Sans";font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin:6px 0 10px}
+.ap-cn{font:400 italic 15px "Prata";color:var(--lack);margin-left:6px}
+.ap-row{display:flex;flex-wrap:wrap;gap:4px 22px}
+.ap-t{position:relative;padding:4px 0 8px;font:400 19px "Prata";color:var(--tinte-2);transition:color .25s}
+.ap-t:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--lack);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.3,1,.4,1)}
+.ap-t.on{color:var(--tinte)}.ap-t.on:after{transform:scaleX(1)}
+.ap-cols{display:flex;flex-wrap:wrap;gap:10px}
+.ap-s{width:30px;height:52px;border-radius:15px 15px 8px 8px;background:var(--c);box-shadow:inset 0 -6px 10px rgba(0,0,0,.18),inset 0 6px 8px rgba(255,255,255,.25);position:relative;transition:transform .3s cubic-bezier(.3,1.4,.5,1)}
+.ap-s i{position:absolute;left:50%;top:-10px;width:12px;height:12px;margin-left:-6px;border-radius:3px 3px 1px 1px;background:#2a2320;opacity:.85}
+.ap-s.on{transform:translateY(-6px);box-shadow:0 0 0 2px var(--papier),0 0 0 3.5px var(--lack),inset 0 -6px 10px rgba(0,0,0,.18)}
+.ap-sum{display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.ap-sum b{display:block;font:400 18px "Prata";line-height:1.3}
+.ap-sum em{display:block;font-style:normal;font-size:13px;color:var(--tinte-2);margin-top:2px}
+.ap-pr{white-space:nowrap}.ap-pr small{font-size:13px;color:var(--tinte-2);margin-right:4px}.ap-pr span{font:400 42px "Prata";color:var(--lack)}
+.ap-go{align-self:flex-start}
+@media (hover:hover){.live .ap-t:not(.on):hover{color:var(--lack)}.live .ap-s:not(.on):hover{transform:translateY(-3px)}}
 @media (max-width:1000px){
-  .anprobe{grid-template-columns:1fr;gap:18px}
-  .ap-center{order:-1;justify-self:center}
-  .ap-left,.ap-right{justify-self:stretch;width:100%}
-  .ap-left{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:start}
-  .ap-block{margin-bottom:6px}
-  .ap-ruler{flex-direction:row;padding:24px 0 0;gap:0;justify-content:space-between}
-  .ap-track{left:8px;right:8px;top:8px;bottom:auto;width:auto;height:2px;background:repeating-linear-gradient(90deg,var(--gold) 0 1px,transparent 1px 7px)}
-  .ap-track i{top:-7px;left:var(--x,0);transition:left .45s cubic-bezier(.3,1.4,.5,1)}
-  .ap-stop{font-size:15px;padding:4px 2px}
-  .ap-toggle{width:170px;height:44px;font-size:12px}
-  .ap-mirror{width:min(330px,82vw);padding:16px}
-  .ap-fan{height:132px}.ap-chip{width:56px;height:116px;margin-left:-28px}.ap-chip i{height:72px}
-  .ap-pult{grid-template-columns:repeat(4,1fr);gap:6px}.ap-bulb{flex-direction:column;gap:6px;padding:10px 4px;font-size:12px}
+  .anprobe{grid-template-columns:1fr;gap:22px}
+  .ap-pic{justify-self:center;width:min(330px,80vw)}
+  .ap-steps{max-width:none}
+  .ap-t{font-size:17px}.ap-row{gap:4px 16px}
 }
-@media (max-width:560px){.ap-left{grid-template-columns:1fr}}
 
 
 /* ---------- Programm (Preise) ---------- */
@@ -747,22 +708,16 @@ html.sv .akt-stage .vh .cord i{position:absolute;right:-7px;top:-4px;width:12px;
       <button class="wandchip" id="wandChip" hidden><i></i><span data-en="Take the colour from the shelf">Farbe vom Regal mitnehmen</span></button>
     </div>
 <div class="anprobe" id="anprobe">
-      <div class="ap-side ap-left">
-        <div class="ap-block"><span class="ap-k" data-en="Length">Länge</span>
-          <div class="ap-ruler" id="apRuler" role="radiogroup" aria-label="Länge"><span class="ap-track"><i id="apMark"></i></span><button class="ap-stop" data-l="kurz"><span data-en="Short">Kurz</span></button><button class="ap-stop" data-l="medium"><span data-en="Medium">Medium</span></button><button class="ap-stop" data-l="lang"><span data-en="Long">Lang</span></button><button class="ap-stop" data-l="xl"><span data-en="Extra long">Extra lang</span></button></div></div>
-        <div class="ap-block"><span class="ap-k" data-en="Shape">Form</span>
-          <button class="ap-toggle" id="apForm" role="switch" aria-checked="false"><span class="t-a" data-en="Almond">Mandel</span><span class="t-b" data-en="Square">Eckig</span><i></i></button></div>
-      </div>
-      <div class="ap-center">
-        <div class="ap-mirror" id="apMirror"><span class="ap-bulbs" aria-hidden="true"></span>
-          <div class="ap-glass"><img id="apA" alt="" src="img/anprobe/medium-mandel-nude-none.webp"><img id="apB" alt="" aria-hidden="true"></div></div>
-        <div class="ap-fan" id="apFan" role="listbox" aria-label="Farbe"><button class="ap-chip" data-c="rosa" style="--c:#DA9898" aria-label="Rosé"><i></i><b>Rosé</b></button><button class="ap-chip" data-c="mauve" style="--c:#9E6062" aria-label="Mauve"><i></i><b>Mauve</b></button><button class="ap-chip" data-c="flieder" style="--c:#B1899F" aria-label="Flieder"><i></i><b>Flieder</b></button><button class="ap-chip" data-c="nude" style="--c:#CA867C" aria-label="Nude"><i></i><b>Nude</b></button><button class="ap-chip" data-c="rot" style="--c:#910B1E" aria-label="Kirschrot"><i></i><b>Kirschrot</b></button><button class="ap-chip" data-c="bordeaux" style="--c:#531A20" aria-label="Bordeaux"><i></i><b>Bordeaux</b></button><button class="ap-chip" data-c="aqua" style="--c:#87ADAA" aria-label="Aqua"><i></i><b>Aqua</b></button><button class="ap-chip" data-c="schwarz" style="--c:#221916" aria-label="Schwarz"><i></i><b>Schwarz</b></button></div>
-        <p class="ap-hint" data-en="Swipe or tap the fan">Fächer wischen oder antippen</p>
-      </div>
-      <div class="ap-side ap-right">
-        <div class="ap-block"><span class="ap-k" data-en="Finish">Finish</span><div class="ap-pult" id="apPult"><button class="ap-bulb" data-x="none"><i></i><span data-en="Gloss">Glanz</span></button><button class="ap-bulb" data-x="chrome"><i></i><span data-en="Chrome">Chrome</span></button><button class="ap-bulb" data-x="cat"><i></i><span data-en="Cat eye">Cat Eye</span></button><button class="ap-bulb" data-x="glitzer"><i></i><span data-en="Glitter">Glitzer</span></button></div></div>
-        <div class="ap-ticket" id="apTicket"><span class="ap-k" data-en="Your fitting">Ihre Anprobe</span><b id="apName"></b><div class="ap-price"><small id="apFrom">CHF</small><span id="apPrice"></span></div><em id="apTime"></em>
-          <a class="btn btn-ink" href="#salons" data-en="Book this set">Dieses Set buchen</a></div>
+      <figure class="ap-pic"><div class="ap-glass"><img id="apA" alt="" src="img/anprobe/medium-mandel-nude-none.webp"><img id="apB" alt="" aria-hidden="true"></div>
+        <figcaption id="apCap"></figcaption></figure>
+      <div class="ap-steps">
+        <div class="ap-step"><span class="ap-n">1</span><div><span class="ap-k" data-en="Length">Länge</span><div class="ap-row" id="apLen" role="radiogroup" aria-label="Länge"><button class="ap-t" data-l="kurz"><span data-en="Short">Kurz</span></button><button class="ap-t" data-l="medium"><span data-en="Medium">Medium</span></button><button class="ap-t" data-l="lang"><span data-en="Long">Lang</span></button><button class="ap-t" data-l="xl"><span data-en="Extra long">Extra lang</span></button></div></div></div>
+        <div class="ap-step"><span class="ap-n">2</span><div><span class="ap-k" data-en="Shape">Form</span><div class="ap-row" id="apForm" role="radiogroup" aria-label="Form">
+          <button class="ap-t" data-f="mandel"><span data-en="Almond">Mandel</span></button><button class="ap-t" data-f="eckig"><span data-en="Square">Eckig</span></button></div></div></div>
+        <div class="ap-step"><span class="ap-n">3</span><div><span class="ap-k" data-en="Colour">Farbe</span> <span class="ap-cn" id="apCn"></span><div class="ap-cols" id="apCols" role="radiogroup" aria-label="Farbe"><button class="ap-s" data-c="rosa" style="--c:#DA9898" aria-label="Rosé"><i></i></button><button class="ap-s" data-c="mauve" style="--c:#9E6062" aria-label="Mauve"><i></i></button><button class="ap-s" data-c="flieder" style="--c:#B1899F" aria-label="Flieder"><i></i></button><button class="ap-s" data-c="nude" style="--c:#CA867C" aria-label="Nude"><i></i></button><button class="ap-s" data-c="rot" style="--c:#910B1E" aria-label="Kirschrot"><i></i></button><button class="ap-s" data-c="bordeaux" style="--c:#531A20" aria-label="Bordeaux"><i></i></button><button class="ap-s" data-c="aqua" style="--c:#87ADAA" aria-label="Aqua"><i></i></button><button class="ap-s" data-c="schwarz" style="--c:#221916" aria-label="Schwarz"><i></i></button></div></div></div>
+        <div class="ap-sum"><div><span class="ap-k" data-en="Your set">Ihr Set</span><b id="apName"></b><em id="apTime"></em></div>
+          <div class="ap-pr"><small>CHF</small><span id="apPrice"></span></div></div>
+        <a class="btn btn-ink ap-go" href="#salons" data-en="Book this set">Dieses Set buchen</a>
       </div>
     </div>
   </div>
@@ -1128,7 +1083,8 @@ if(H.classList.contains('sv')){(()=>{const stg=$('#aktStage');if(!stg)return;con
       const c=document.createElement('span');c.className='cord';c.innerHTML='<i></i>';pn.appendChild(c)})}
   const lift=(u,e)=>e*(.10+.86*Math.pow(u,1.35));          /* Anteil der Höhe, um den der Saum angehoben ist */
   function draw(){if(!N)build();const G=.045;              /* gerafft bleiben 17 % der Bahnbreite am Rand */
-    P.forEach(pn=>{const st=pn.children;let x=0;
+    const ex=Math.max(0,Math.min(1,(cur-.86)/.14)),EX=-(W*G+26)*(ex*ex*(3-2*ex));   /* am Schluss gleitet die Raffung hinter den Kartenrand */
+    P.forEach(pn=>{const st=pn.children;let x=EX;
       const EE=[];for(let i=0;i<N;i++){const u=i/(N-1),dl=.26*(1-u);const q=Math.max(0,Math.min(1,(cur-dl)/(1-dl)));EE.push(q<.5?4*q*q*q:1-Math.pow(-2*q+2,3)/2)}
       for(let i=0;i<N;i++){const e=EE[i];
         const sc=1-(1-G)*e, w=bw*sc;
@@ -1139,7 +1095,7 @@ if(H.classList.contains('sv')){(()=>{const stg=$('#aktStage');if(!stg)return;con
         d.style.left='0px';d.style.clipPath=`polygon(0 0,100% 0,100% ${yr.toFixed(2)}%,0 ${yl.toFixed(2)}%)`;
         d.style.setProperty('--s',(Math.min(1,e*1.25)).toFixed(3));x+=w}
       const c=st[N];const eo=Math.max(0,Math.min(1,(cur-.45)/.4));const cy=Hh*.56;
-      c.style.opacity=eo.toFixed(3);c.style.top=cy+'px';c.style.width=(W*G*1.05)+'px';c.style.transform=`scaleX(${(.3+.7*eo).toFixed(3)})`})}
+      c.style.opacity=eo.toFixed(3);c.style.top=cy+'px';c.style.width=(W*G*1.05)+'px';c.style.transform=`translateX(${EX.toFixed(2)}px) scaleX(${(.3+.7*eo).toFixed(3)})`})}
   addEventListener('resize',()=>{N=0;draw()});
   function tick(){raf=0;tgt=force!==null?force:(rm?1:target());const k=force!==null?.2:.075;const d=tgt-cur;const st=Math.max(-.022,Math.min(.022,d*k));cur=Math.abs(d)<.0008?tgt:cur+(force!==null?d*k:st);draw();if(cur!==tgt)raf=requestAnimationFrame(tick)}
   const kick=()=>{if(!raf)raf=requestAnimationFrame(tick)};
@@ -1158,39 +1114,31 @@ if(H.classList.contains('sv')){(()=>{const stg=$('#aktStage');if(!stg)return;con
     const st=t=>{const k=Math.min(1,(t-t0)/D),e2=1-Math.pow(1-k,3);z.textContent=fmt(N*e2);if(k<1)requestAnimationFrame(st)};requestAnimationFrame(st)}),{threshold:.35}).observe(lg)})();
 
 
-/* ===== Die Anprobe ===== */
+/* ===== Die Anprobe (einfach) ===== */
 (()=>{const ap=$('#anprobe');if(!ap)return;
-const COLS=[["rosa", "Ros\u00e9", "Ros\u00e9", "#DA9898"], ["mauve", "Mauve", "Mauve", "#9E6062"], ["flieder", "Flieder", "Lilac", "#B1899F"], ["nude", "Nude", "Nude", "#CA867C"], ["rot", "Kirschrot", "Cherry", "#910B1E"], ["bordeaux", "Bordeaux", "Bordeaux", "#531A20"], ["aqua", "Aqua", "Aqua", "#87ADAA"], ["schwarz", "Schwarz", "Black", "#221916"]],LENS=[["kurz", "Kurz", "Short"], ["medium", "Medium", "Medium"], ["lang", "Lang", "Long"], ["xl", "Extra lang", "Extra long"]],FX=[["none", "Glanz", "Gloss"], ["chrome", "Chrome", "Chrome"], ["cat", "Cat Eye", "Cat eye"], ["glitzer", "Glitzer", "Glitter"]],PR={"len": {"kurz": [90, 60], "medium": [140, 75], "lang": [170, 90], "xl": [200, 120]}, "fx": {"none": [0, 0], "chrome": [20, 15], "cat": [15, 15], "glitzer": [15, 15]}};
-let st={l:'medium',f:'mandel',c:'nude',x:'none'};
-const src=()=>`img/anprobe/${st.l}-${st.f}-${st.c}-${st.x}.webp`;
+const COLS=[["rosa", "Ros\u00e9", "Ros\u00e9", "#DA9898"], ["mauve", "Mauve", "Mauve", "#9E6062"], ["flieder", "Flieder", "Lilac", "#B1899F"], ["nude", "Nude", "Nude", "#CA867C"], ["rot", "Kirschrot", "Cherry", "#910B1E"], ["bordeaux", "Bordeaux", "Bordeaux", "#531A20"], ["aqua", "Aqua", "Aqua", "#87ADAA"], ["schwarz", "Schwarz", "Black", "#221916"]],LENS=[["kurz", "Kurz", "Short"], ["medium", "Medium", "Medium"], ["lang", "Lang", "Long"], ["xl", "Extra lang", "Extra long"]],PR={"len": {"kurz": [90, 60], "medium": [140, 75], "lang": [170, 90], "xl": [200, 120]}, "fx": {"none": [0, 0], "chrome": [20, 15], "cat": [15, 15], "glitzer": [15, 15]}};
+let st={l:'medium',f:'mandel',c:'nude'};
+const src=()=>`img/anprobe/${st.l}-${st.f}-${st.c}-none.webp`;
 let A=$('#apA'),B=$('#apB'),cur=A.getAttribute('src'),tok=0;
 function show(){const s=src();if(s===cur)return;cur=s;const my=++tok;const im=new Image();im.src=s;(im.decode?im.decode():Promise.resolve()).catch(()=>{}).then(()=>{if(my!==tok)return;
   B.style.transition='none';B.style.opacity=0;B.src=s;void B.offsetWidth;B.style.transition='';B.style.opacity=1;setTimeout(()=>{if(my!==tok)return;A.src=s;B.style.transition='none';B.style.opacity=0},380)})}
 function render(){const en=typeof lang!=='undefined'&&lang==='en';
-  $$('.ap-stop').forEach((b,i)=>{const on=b.dataset.l===st.l;b.classList.toggle('on',on);b.setAttribute('aria-checked',on);if(on){const r=b.offsetTop+b.offsetHeight/2-8,x=b.offsetLeft+b.offsetWidth/2-8;$('#apMark').style.setProperty('--y',(r-10)+'px');$('#apMark').style.setProperty('--x',x+'px')}});
-  $('#apForm').setAttribute('aria-checked',st.f==='eckig');
-  $$('.ap-bulb').forEach(b=>b.classList.toggle('on',b.dataset.x===st.x));
-  const chips=$$('.ap-chip'),ci=COLS.findIndex(c=>c[0]===st.c);
-  chips.forEach((ch,k)=>{const d=k-ci;ch.style.setProperty('--a',(d*13)+'deg');ch.style.setProperty('--ty',d===0?'-14px':'0px');ch.style.setProperty('--o',Math.abs(d)>3?0:1-Math.abs(d)*.12);ch.style.setProperty('--z',20-Math.abs(d));ch.classList.toggle('on',d===0);ch.setAttribute('aria-selected',d===0);ch.tabIndex=Math.abs(d)>3?-1:0;ch.querySelector('b').textContent=en?COLS[k][2]:COLS[k][1]});
-  const L=LENS.find(l=>l[0]===st.l),C=COLS[ci],X=FX.find(x=>x[0]===st.x);
-  const p=PR.len[st.l],px=PR.fx[st.x];
-  $('#apName').textContent=[en?L[2]:L[1],en?(st.f==='mandel'?'almond':'square'):(st.f==='mandel'?'Mandel':'Eckig'),en?C[2]:C[1],st.x!=='none'?(en?X[2]:X[1]):''].filter(Boolean).join(' · ');
-  $('#apPrice').textContent=p[0]+px[0];$('#apTime').textContent=(en?'approx. ':'ca. ')+(p[1]+px[1])+(en?' min · new set':' Min. · neues Set');
+  $$('#apLen .ap-t').forEach(b=>{const on=b.dataset.l===st.l;b.classList.toggle('on',on);b.setAttribute('aria-checked',on)});
+  $$('#apForm .ap-t').forEach(b=>{const on=b.dataset.f===st.f;b.classList.toggle('on',on);b.setAttribute('aria-checked',on)});
+  $$('.ap-s').forEach(b=>{const on=b.dataset.c===st.c;b.classList.toggle('on',on);b.setAttribute('aria-checked',on)});
+  const L=LENS.find(l=>l[0]===st.l),C=COLS.find(c=>c[0]===st.c),p=PR.len[st.l];
+  const fn=en?(st.f==='mandel'?'almond':'square'):(st.f==='mandel'?'Mandel':'Eckig');
+  $('#apCn').textContent=en?C[2]:C[1];
+  $('#apName').textContent=[en?L[2]:L[1],fn,en?C[2]:C[1]].join(' · ');
+  $('#apCap').textContent=en?'Example photo · your set':'Beispielfoto · Ihr Set';
+  $('#apPrice').textContent=p[0];$('#apTime').textContent=(en?'approx. ':'ca. ')+p[1]+(en?' min · new set':' Min. · neues Set');
   show();preload()}
-let pre=new Set();function preload(){[[st.l,st.f,null,st.x]].forEach(()=>{COLS.forEach(c=>{const s=`img/anprobe/${st.l}-${st.f}-${c[0]}-${st.x}.webp`;if(!pre.has(s)){pre.add(s);const i=new Image();i.src=s}})})}
-$$('.ap-stop').forEach(b=>b.addEventListener('click',()=>{st.l=b.dataset.l;render()}));
-$('#apForm').addEventListener('click',()=>{st.f=st.f==='mandel'?'eckig':'mandel';render()});
-$$('.ap-bulb').forEach(b=>b.addEventListener('click',()=>{st.x=b.dataset.x;render()}));
-$$('.ap-chip').forEach(b=>b.addEventListener('click',e=>{if(drag.moved)return;st.c=b.dataset.c;render()}));
-/* Fächer wischen */
-const fan=$('#apFan');const drag={x:0,moved:false,start:0,on:false};
-fan.addEventListener('pointerdown',e=>{drag.on=true;drag.moved=false;drag.x=e.clientX;drag.start=COLS.findIndex(c=>c[0]===st.c)});
-addEventListener('pointermove',e=>{if(!drag.on)return;const dx=e.clientX-drag.x;if(Math.abs(dx)>8)drag.moved=true;const k=Math.max(0,Math.min(COLS.length-1,drag.start-Math.round(dx/46)));if(COLS[k][0]!==st.c){st.c=COLS[k][0];render()}});
-addEventListener('pointerup',()=>{drag.on=false;setTimeout(()=>drag.moved=false,0)});
-fan.addEventListener('keydown',e=>{const i=COLS.findIndex(c=>c[0]===st.c);if(e.key==='ArrowRight'&&i<COLS.length-1){st.c=COLS[i+1][0];render()}if(e.key==='ArrowLeft'&&i>0){st.c=COLS[i-1][0];render()}});
-addEventListener('resize',render);
-/* Farbe von der Lackwand */
-const ch=$('#wandChip');if(ch)ch.addEventListener('click',()=>{const v=getComputedStyle(H).getPropertyValue('--pick').trim().replace('#','');if(v.length!==6)return;const q=[0,2,4].map(i=>parseInt(v.slice(i,i+2),16));let best=0,bd=1e9;COLS.forEach((c,k)=>{const h=c[3].slice(1);const w=[0,2,4].map(i=>parseInt(h.slice(i,i+2),16));const d=w.reduce((a,x,i)=>a+(x-q[i])**2,0);if(d<bd){bd=d;best=k}});st.c=COLS[best][0];render()});
+let pre=new Set();function preload(){COLS.forEach(c=>{const s=`img/anprobe/${st.l}-${st.f}-${c[0]}-none.webp`;if(!pre.has(s)){pre.add(s);const i=new Image();i.src=s}})}
+$$('#apLen .ap-t').forEach(b=>b.addEventListener('click',()=>{st.l=b.dataset.l;render()}));
+$$('#apForm .ap-t').forEach(b=>b.addEventListener('click',()=>{st.f=b.dataset.f;render()}));
+$$('.ap-s').forEach(b=>b.addEventListener('click',()=>{st.c=b.dataset.c;render()}));
+/* Farbe vom Regal übernehmen */
+const ch=$('#wandChip');if(ch)ch.addEventListener('click',()=>{const v=getComputedStyle(H).getPropertyValue('--pick').trim().replace('#','');if(v.length!==6)return;const q=[0,2,4].map(i=>parseInt(v.slice(i,i+2),16));let best=0,bd=1e9;COLS.forEach((c,k)=>{const h=c[3].slice(1);const w=[0,2,4].map(i=>parseInt(h.slice(i,i+2),16));const d=w.reduce((s,x,i)=>s+(x-q[i])**2,0);if(d<bd){bd=d;best=k}});st.c=COLS[best][0];render();$('#anprobe').scrollIntoView({behavior:'smooth',block:'center'})});
 window.__konfLang=()=>render();
 render();
 })();
